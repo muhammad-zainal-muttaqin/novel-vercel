@@ -18,8 +18,8 @@ export const Warning = ({ children }: { children: React.ReactNode }) => (
 // Quote Component
 export const Quote = ({ author, children }: { author?: string; children: React.ReactNode }) => (
   <blockquote className="border-l-4 border-blue-500 bg-blue-50 p-4 italic my-4">
-    <p>"{children}"</p>
-    {author && <cite className="block text-right mt-2 text-sm text-gray-600">— {author}</cite>}
+    <p className="text-blue-900 font-medium">"{children}"</p>
+    {author && <cite className="block text-right mt-2 text-sm text-blue-700 font-semibold">— {author}</cite>}
   </blockquote>
 );
 

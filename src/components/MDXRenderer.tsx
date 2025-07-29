@@ -138,14 +138,61 @@ export default function MDXRenderer({ content }: MDXRendererProps) {
           if (trimmedLine.startsWith('##### ')) {
             return <h5 key={`${index}-${lineIndex}`} className="text-base font-medium mb-2 text-gray-700">{trimmedLine.substring(6)}</h5>;
           }
-          if (trimmedLine.startsWith('###### ')) {
-            return <h6 key={`${index}-${lineIndex}`} className="text-sm font-medium mb-2 text-gray-700">{trimmedLine.substring(7)}</h6>;
-          }
+                           if (trimmedLine.startsWith('###### ')) {
+                   return <h6 key={`${index}-${lineIndex}`} className="text-sm font-medium mb-2 text-gray-700">{trimmedLine.substring(7)}</h6>;
+                 }
+                 
+                 // List items
+                 if (trimmedLine.startsWith('- ') || trimmedLine.startsWith('* ')) {
+                   return <li key={`${index}-${lineIndex}`} className="mb-1 text-gray-700">{trimmedLine.substring(2)}</li>;
+                 }
+                 
+                 // Numbered list items
+                 if (/^\d+\.\s/.test(trimmedLine)) {
+                   return <li key={`${index}-${lineIndex}`} className="mb-1 text-gray-700">{trimmedLine.replace(/^\d+\.\s/, '')}</li>;
+                 }
           
-          // Regular paragraph
-          if (trimmedLine) {
-            return <p key={`${index}-${lineIndex}`} className="mb-4 leading-relaxed text-gray-700">{trimmedLine}</p>;
-          }
+                           // Regular paragraph
+                 if (trimmedLine) {
+                   // Parse links in the text
+                   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+                   const parts = [];
+                   let lastIndex = 0;
+                   let match;
+                   
+                   while ((match = linkRegex.exec(trimmedLine)) !== null) {
+                     // Add text before the link
+                     if (match.index > lastIndex) {
+                       parts.push(trimmedLine.slice(lastIndex, match.index));
+                     }
+                     
+                     // Add the link
+                     parts.push(
+                       <a 
+                         key={`link-${match.index}`}
+                         href={match[2]} 
+                         target="_blank" 
+                         rel="noopener noreferrer"
+                         className="text-blue-600 hover:text-blue-800 underline"
+                       >
+                         {match[1]}
+                       </a>
+                     );
+                     
+                     lastIndex = match.index + match[0].length;
+                   }
+                   
+                   // Add remaining text
+                   if (lastIndex < trimmedLine.length) {
+                     parts.push(trimmedLine.slice(lastIndex));
+                   }
+                   
+                   return (
+                     <p key={`${index}-${lineIndex}`} className="mb-4 leading-relaxed text-gray-700">
+                       {parts.length > 0 ? parts : trimmedLine}
+                     </p>
+                   );
+                 }
           
           return null;
         });
