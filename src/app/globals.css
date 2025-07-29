@@ -62,6 +62,11 @@ body {
   margin: 0 auto;
 }
 
+/* Ensure buttons use sans-serif font */
+button, .btn, [class*="bg-blue-600"], [class*="bg-blue-700"] {
+  font-family: var(--font-sans) !important;
+}
+
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif-primary);
@@ -83,4 +88,22 @@ a {
 
 a:hover {
   color: #1d4ed8;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply bg-blue-600 text-white font-medium px-4 py-2 rounded-md hover:bg-blue-700 transition-colors shadow-sm;
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+.btn-primary:hover {
+  @apply bg-blue-700;
+  color: white !important;
+}
+
+/* Ensure button text is always visible */
+button, .btn, [class*="bg-blue-600"] {
+  color: white !important;
+  font-weight: 500 !important;
 }

@@ -83,7 +83,7 @@ export default function Home() {
                     </div>
                     <Link 
                       href={`/novel/${novel.slug}`}
-                      className="block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                      className="block w-full text-center px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors shadow-sm"
                     >
                       📖 Baca Novel
                     </Link>
