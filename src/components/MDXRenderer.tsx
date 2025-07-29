@@ -220,7 +220,7 @@ export default function MDXRenderer({ content }: MDXRendererProps) {
                    );
                  }
                  
-                 // List items
+                 // List items - render as simple paragraphs for now
                  if (trimmedLine.startsWith('- ') || trimmedLine.startsWith('* ')) {
                    const listContent = trimmedLine.substring(2);
                    const renderFormattedText = (text: string) => {
@@ -231,10 +231,10 @@ export default function MDXRenderer({ content }: MDXRendererProps) {
                    };
                    
                    return (
-                     <li 
+                     <p 
                        key={`${index}-${lineIndex}`} 
-                       className="mb-1 text-gray-700"
-                       dangerouslySetInnerHTML={{ __html: renderFormattedText(listContent) }}
+                       className="mb-1 text-gray-700 ml-4"
+                       dangerouslySetInnerHTML={{ __html: `• ${renderFormattedText(listContent)}` }}
                      />
                    );
                  }
@@ -250,10 +250,10 @@ export default function MDXRenderer({ content }: MDXRendererProps) {
                    };
                    
                    return (
-                     <li 
+                     <p 
                        key={`${index}-${lineIndex}`} 
-                       className="mb-1 text-gray-700"
-                       dangerouslySetInnerHTML={{ __html: renderFormattedText(listContent) }}
+                       className="mb-1 text-gray-700 ml-4"
+                       dangerouslySetInnerHTML={{ __html: `${trimmedLine.match(/^\d+/)?.[0]}. ${renderFormattedText(listContent)}` }}
                      />
                    );
                  }

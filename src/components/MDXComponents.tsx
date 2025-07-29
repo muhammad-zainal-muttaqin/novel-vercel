@@ -153,11 +153,11 @@ export const ReadingProgress = ({ progress }: { progress: number }) => (
 export const Character = ({ name, role, children }: { name: string; role?: string; children: React.ReactNode }) => (
   <div className="bg-pink-50 border-l-4 border-pink-500 p-4 mb-4 rounded">
     <div className="flex items-start">
-      <div className="flex-shrink-0 text-pink-600 text-xl">👤</div>
+      <div className="flex-shrink-0 text-pink-700 text-xl">👤</div>
       <div className="ml-3">
-        <h4 className="text-sm font-semibold text-pink-800">{name}</h4>
-        {role && <p className="text-xs text-pink-600 mb-2">{role}</p>}
-        <p className="text-sm text-pink-700">{children}</p>
+        <h4 className="text-sm font-semibold text-pink-900">{name}</h4>
+        {role && <p className="text-xs text-pink-800 mb-2 font-medium">{role}</p>}
+        <p className="text-sm text-pink-800">{children}</p>
       </div>
     </div>
   </div>
@@ -167,11 +167,11 @@ export const Character = ({ name, role, children }: { name: string; role?: strin
 export const Scene = ({ setting, time, children }: { setting: string; time?: string; children: React.ReactNode }) => (
   <div className="bg-indigo-50 border border-indigo-200 p-4 mb-4 rounded-lg">
     <div className="flex items-center mb-2">
-      <span className="text-indigo-600 text-lg mr-2">🎭</span>
-      <h4 className="text-sm font-semibold text-indigo-800">{setting}</h4>
-      {time && <span className="ml-2 text-xs text-indigo-600">• {time}</span>}
+      <span className="text-indigo-700 text-lg mr-2">🎭</span>
+      <h3 className="text-sm font-semibold text-indigo-900">{setting}</h3>
+      {time && <span className="ml-2 text-xs text-indigo-800 font-medium">• {time}</span>}
     </div>
-    <p className="text-sm text-indigo-700">{children}</p>
+    <p className="text-sm text-indigo-800">{children}</p>
   </div>
 );
 
@@ -192,11 +192,11 @@ export const Dialogue = ({ speaker, children }: { speaker: string; children: Rea
 export const TimeIndicator = ({ time, date, children }: { time: string; date?: string; children: React.ReactNode }) => (
   <div className="bg-teal-50 border border-teal-200 p-3 mb-4 rounded-lg text-center">
     <div className="flex items-center justify-center mb-1">
-      <span className="text-teal-600 text-lg mr-2">⏰</span>
-      <span className="text-sm font-medium text-teal-800">{time}</span>
-      {date && <span className="ml-2 text-xs text-teal-600">• {date}</span>}
+      <span className="text-teal-700 text-lg mr-2">⏰</span>
+      <span className="text-sm font-medium text-teal-900">{time}</span>
+      {date && <span className="ml-2 text-xs text-teal-800 font-medium">• {date}</span>}
     </div>
-    {children && <p className="text-xs text-teal-700">{children}</p>}
+    {children && <p className="text-xs text-teal-800 font-medium">{children}</p>}
   </div>
 );
 
@@ -204,11 +204,11 @@ export const TimeIndicator = ({ time, date, children }: { time: string; date?: s
 export const Location = ({ name, description, children }: { name: string; description?: string; children: React.ReactNode }) => (
   <div className="bg-cyan-50 border border-cyan-200 p-4 mb-4 rounded-lg">
     <div className="flex items-center mb-2">
-      <span className="text-cyan-600 text-lg mr-2">🗺️</span>
-      <h4 className="text-sm font-semibold text-cyan-800">{name}</h4>
+      <span className="text-cyan-700 text-lg mr-2">🗺️</span>
+      <h4 className="text-sm font-semibold text-cyan-900">{name}</h4>
     </div>
-    {description && <p className="text-xs text-cyan-600 mb-2">{description}</p>}
-    <p className="text-sm text-cyan-700">{children}</p>
+    {description && <p className="text-xs text-cyan-800 mb-2 font-medium">{description}</p>}
+    <p className="text-sm text-cyan-800">{children}</p>
   </div>
 );
 
@@ -216,11 +216,11 @@ export const Location = ({ name, description, children }: { name: string; descri
 export const Emotion = ({ type, intensity, children }: { type: string; intensity?: string; children: React.ReactNode }) => (
   <div className="bg-rose-50 border border-rose-200 p-3 mb-4 rounded-lg">
     <div className="flex items-center mb-1">
-      <span className="text-rose-600 text-lg mr-2">😊</span>
-      <span className="text-sm font-medium text-rose-800">{type}</span>
-      {intensity && <span className="ml-2 text-xs text-rose-600">• {intensity}</span>}
+      <span className="text-rose-700 text-lg mr-2">😊</span>
+      <span className="text-sm font-medium text-rose-900">{type}</span>
+      {intensity && <span className="ml-2 text-xs text-rose-800 font-medium">• {intensity}</span>}
     </div>
-    {children && <p className="text-xs text-rose-700">{children}</p>}
+    {children && <p className="text-xs text-rose-800 font-medium">{children}</p>}
   </div>
 );
 
