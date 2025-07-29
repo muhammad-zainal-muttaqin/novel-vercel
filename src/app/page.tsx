@@ -1,5 +1,15 @@
 import Link from 'next/link';
 import { getAllNovels } from '@/utils/contentHelpers';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Novel Vercel - Platform Baca Novel Online",
+  description: "Platform baca novel online yang cepat, ringan, dan skalabel. Nikmati pengalaman membaca novel yang nyaman dengan komponen interaktif.",
+  openGraph: {
+    title: "Novel Vercel - Platform Baca Novel Online",
+    description: "Platform baca novel online yang cepat, ringan, dan skalabel.",
+  },
+};
 
 export default function Home() {
   const novels = getAllNovels();

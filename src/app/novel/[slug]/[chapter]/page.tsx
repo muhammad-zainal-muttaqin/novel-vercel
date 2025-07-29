@@ -2,6 +2,43 @@ import Link from 'next/link';
 import { getNovelBySlug, getChapterContent, getAdjacentChapters } from '@/utils/contentHelpers';
 import { notFound } from 'next/navigation';
 import MDXRenderer from '@/components/MDXRenderer';
+import type { Metadata } from 'next';
+
+interface PageProps {
+  params: Promise<{
+    slug: string;
+    chapter: string;
+  }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug, chapter } = await params;
+  const novel = getNovelBySlug(slug);
+  
+  if (!novel) {
+    return {
+      title: "Chapter Tidak Ditemukan - Novel Vercel",
+    };
+  }
+  
+  const currentChapter = novel.metadata.chapters.find(ch => ch.slug === chapter);
+  
+  if (!currentChapter) {
+    return {
+      title: "Chapter Tidak Ditemukan - Novel Vercel",
+    };
+  }
+  
+  return {
+    title: `Chapter ${currentChapter.number}: ${currentChapter.title} - ${novel.metadata.title} - Novel Vercel`,
+    description: `Baca Chapter ${currentChapter.number}: ${currentChapter.title} dari novel ${novel.metadata.title}. ${novel.metadata.description}`,
+    openGraph: {
+      title: `Chapter ${currentChapter.number}: ${currentChapter.title}`,
+      description: `Baca Chapter ${currentChapter.number} dari novel ${novel.metadata.title}`,
+      type: 'article',
+    },
+  };
+}
 
 interface PageProps {
   params: Promise<{

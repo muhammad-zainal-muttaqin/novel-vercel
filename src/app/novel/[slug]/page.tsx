@@ -1,6 +1,34 @@
 import Link from 'next/link';
 import { getNovelBySlug } from '@/utils/contentHelpers';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
+
+interface PageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const novel = getNovelBySlug(slug);
+  
+  if (!novel) {
+    return {
+      title: "Novel Tidak Ditemukan - Novel Vercel",
+    };
+  }
+  
+  return {
+    title: `${novel.metadata.title} - Novel Vercel`,
+    description: novel.metadata.description,
+    openGraph: {
+      title: novel.metadata.title,
+      description: novel.metadata.description,
+      type: 'book',
+    },
+  };
+}
 
 interface PageProps {
   params: Promise<{
