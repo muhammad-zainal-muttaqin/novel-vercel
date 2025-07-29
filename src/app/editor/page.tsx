@@ -83,7 +83,7 @@ export default function EditorPage() {
           {/* Metadata Form */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-semibold text-gray-900 mb-1">
                 Novel Slug
               </label>
               <input
@@ -91,11 +91,11 @@ export default function EditorPage() {
                 value={novelSlug}
                 onChange={(e) => setNovelSlug(e.target.value)}
                 placeholder="the-legend-of-aria"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-semibold text-gray-900 mb-1">
                 Chapter Slug
               </label>
               <input
@@ -103,7 +103,7 @@ export default function EditorPage() {
                 value={chapterSlug}
                 onChange={(e) => setChapterSlug(e.target.value)}
                 placeholder="chapter-1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
               />
             </div>
           </div>
@@ -186,7 +186,7 @@ Kutipan penting dari karakter.
 </Quote>
 
 Konten novel Anda di sini...`}
-            className="w-full h-96 p-6 border-0 focus:outline-none resize-none font-mono text-sm"
+            className="w-full h-96 p-6 border-0 focus:outline-none resize-none font-mono text-sm text-gray-900 bg-white"
             style={{ minHeight: '500px' }}
           />
         </div>
@@ -201,7 +201,7 @@ Konten novel Anda di sini...`}
               </p>
             </div>
             <div className="p-6">
-              <pre className="whitespace-pre-wrap text-sm text-gray-700 bg-gray-50 p-4 rounded-md overflow-auto max-h-96">
+              <pre className="whitespace-pre-wrap text-sm text-gray-900 bg-gray-100 p-4 rounded-md overflow-auto max-h-96 border border-gray-200">
                 {content}
               </pre>
             </div>
