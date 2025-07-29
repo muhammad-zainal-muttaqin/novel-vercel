@@ -3,13 +3,39 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Typography System */
+  --font-serif-primary: var(--font-playfair), 'Baskerville', 'Times New Roman', serif;
+  --font-serif-fallback: var(--font-lora), 'Garamond', 'Georgia', serif;
+  --font-sans: var(--font-inter), 'Segoe UI', system-ui, sans-serif;
+  
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 1.75;
+  
+  /* Reading Typography */
+  --reading-font-size: 1.125rem;    /* 18px */
+  --reading-line-height: 1.75;      /* Optimal for reading */
+  --reading-max-width: 65ch;        /* Optimal line length */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +48,39 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}
+
+/* Novel Content Typography */
+.novel-content {
+  font-family: var(--font-serif-primary);
+  font-size: var(--reading-font-size);
+  line-height: var(--reading-line-height);
+  max-width: var(--reading-max-width);
+  margin: 0 auto;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif-primary);
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1.5rem;
+}
+
+/* Links */
+a {
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: #1d4ed8;
 }

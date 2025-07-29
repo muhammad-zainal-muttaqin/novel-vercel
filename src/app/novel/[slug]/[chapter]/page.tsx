@@ -101,10 +101,10 @@ export default async function ChapterPage({ params }: PageProps) {
             </div>
           </header>
 
-          {/* MDX Content */}
-          <div className="text-gray-700 leading-relaxed">
-            <MDXRenderer content={chapterContent} />
-          </div>
+                     {/* MDX Content */}
+           <div className="novel-content text-gray-700">
+             <MDXRenderer content={chapterContent} />
+           </div>
         </article>
 
         {/* Chapter Navigation */}

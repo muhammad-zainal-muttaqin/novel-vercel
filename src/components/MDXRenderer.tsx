@@ -134,7 +134,7 @@ export default function MDXRenderer({ content }: MDXRendererProps) {
                    return (
                      <h1 
                        key={`${index}-${lineIndex}`} 
-                       className="text-3xl font-bold mb-6 text-gray-900"
+                       className="text-4xl font-bold mb-8 text-gray-900 font-serif"
                        dangerouslySetInnerHTML={{ __html: renderFormattedText(headingContent) }}
                      />
                    );
@@ -279,7 +279,7 @@ export default function MDXRenderer({ content }: MDXRendererProps) {
                    return (
                      <p 
                        key={`${index}-${lineIndex}`} 
-                       className="mb-4 leading-relaxed text-gray-700"
+                       className="mb-6 text-gray-800 font-serif"
                        dangerouslySetInnerHTML={{ __html: formattedText }}
                      />
                    );

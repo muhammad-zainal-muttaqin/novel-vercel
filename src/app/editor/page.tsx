@@ -316,9 +316,11 @@ Konten novel Anda di sini...`}
               </p>
             </div>
             <div className="p-6">
-              <div className="bg-gray-100 p-4 rounded-md overflow-auto max-h-96 border border-gray-200">
-                <MDXRenderer content={content} />
-              </div>
+                                 <div className="bg-gray-100 p-4 rounded-md overflow-auto max-h-96 border border-gray-200">
+                     <div className="novel-content">
+                       <MDXRenderer content={content} />
+                     </div>
+                   </div>
             </div>
           </div>
         )}
