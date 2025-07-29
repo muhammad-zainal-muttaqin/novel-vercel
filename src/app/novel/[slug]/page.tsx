@@ -16,16 +16,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!novel) {
     return {
       title: "Novel Tidak Ditemukan - Novel Vercel",
+      description: "Novel yang Anda cari tidak ditemukan di Novel Vercel.",
     };
   }
   
   return {
     title: `${novel.metadata.title} - Novel Vercel`,
-    description: novel.metadata.description,
+    description: `${novel.metadata.description} Baca novel ${novel.metadata.title} dengan ${novel.metadata.totalChapters} chapter. Genre: ${novel.metadata.tags.join(', ')}.`,
+    keywords: [...novel.metadata.tags, 'novel', 'reading', 'indonesia'],
     openGraph: {
       title: novel.metadata.title,
       description: novel.metadata.description,
       type: 'book',
+      url: `https://novel-vercel-mu.vercel.app/novel/${slug}`,
+      siteName: 'Novel Vercel',
+      locale: 'id_ID',
+    },
+    twitter: {
+      card: 'summary',
+      title: novel.metadata.title,
+      description: novel.metadata.description,
+    },
+    alternates: {
+      canonical: `/novel/${slug}`,
     },
   };
 }

@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!novel) {
     return {
       title: "Chapter Tidak Ditemukan - Novel Vercel",
+      description: "Chapter yang Anda cari tidak ditemukan di Novel Vercel.",
     };
   }
   
@@ -26,16 +27,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!currentChapter) {
     return {
       title: "Chapter Tidak Ditemukan - Novel Vercel",
+      description: "Chapter yang Anda cari tidak ditemukan di Novel Vercel.",
     };
   }
   
   return {
     title: `Chapter ${currentChapter.number}: ${currentChapter.title} - ${novel.metadata.title} - Novel Vercel`,
-    description: `Baca Chapter ${currentChapter.number}: ${currentChapter.title} dari novel ${novel.metadata.title}. ${novel.metadata.description}`,
+    description: `Baca Chapter ${currentChapter.number}: ${currentChapter.title} dari novel ${novel.metadata.title}. ${novel.metadata.description} Total ${currentChapter.wordCount} kata.`,
+    keywords: [...novel.metadata.tags, 'novel', 'reading', 'chapter', 'indonesia'],
     openGraph: {
       title: `Chapter ${currentChapter.number}: ${currentChapter.title}`,
       description: `Baca Chapter ${currentChapter.number} dari novel ${novel.metadata.title}`,
       type: 'article',
+      url: `https://novel-vercel-mu.vercel.app/novel/${slug}/${chapter}`,
+      siteName: 'Novel Vercel',
+      locale: 'id_ID',
+    },
+    twitter: {
+      card: 'summary',
+      title: `Chapter ${currentChapter.number}: ${currentChapter.title}`,
+      description: `Baca Chapter ${currentChapter.number} dari novel ${novel.metadata.title}`,
+    },
+    alternates: {
+      canonical: `/novel/${slug}/${chapter}`,
     },
   };
 }
