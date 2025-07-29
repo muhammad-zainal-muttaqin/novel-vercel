@@ -27,12 +27,31 @@ export default function EditorPage() {
   }, [content]);
 
   const insertComponent = (component: string) => {
-    const templates = {
-      warning: '<Warning>\nPeringatan penting di sini...\n</Warning>',
-      quote: '<Quote author="Nama Karakter">\nKutipan penting di sini...\n</Quote>',
-      image: '<Image \n  src="/images/scene.jpg" \n  alt="Deskripsi gambar" \n  caption="Caption gambar"\n/>',
-      spoiler: '<Spoiler>\nKonten spoiler di sini...\n</Spoiler>'
-    };
+            const templates = {
+          // Text Formatting
+          h1: '# Judul Utama',
+          h2: '## Sub Judul',
+          h3: '### Sub Sub Judul',
+          bold: '**Teks tebal**',
+          italic: '*Teks miring*',
+          list: '- Item 1\n- Item 2\n- Item 3',
+          link: '[Teks Link](https://example.com)',
+          
+          // Novel Components
+          warning: '<Warning>\nPeringatan penting di sini...\n</Warning>',
+          quote: '<Quote author="Nama Karakter">\nKutipan penting di sini...\n</Quote>',
+          image: '<Image \n  src="/images/scene.jpg" \n  alt="Deskripsi gambar" \n  caption="Caption gambar"\n/>',
+          spoiler: '<Spoiler>\nKonten spoiler di sini...\n</Spoiler>',
+          character: '<Character name="Nama Karakter" role="Protagonist">\nDeskripsi karakter di sini...\n</Character>',
+          scene: '<Scene setting="Lokasi Scene" time="Waktu">\nDeskripsi scene di sini...\n</Scene>',
+          dialogue: '<Dialogue speaker="Nama Karakter">\nDialog karakter di sini...\n</Dialogue>',
+          
+          // Story Elements
+          chapter: '# Chapter 1: Judul Chapter\n\nKonten chapter dimulai di sini...',
+          time: '<TimeIndicator time="Pagi hari" date="29 Juli 2024">\nIndikator waktu cerita\n</TimeIndicator>',
+          location: '<Location name="Nama Lokasi" description="Deskripsi lokasi">\nDetail lokasi di sini...\n</Location>',
+          emotion: '<Emotion type="senang" intensity="tinggi">\nDeskripsi emosi karakter...\n</Emotion>'
+        };
 
     const template = templates[component as keyof typeof templates];
     if (template) {
@@ -109,33 +128,128 @@ export default function EditorPage() {
             </div>
           </div>
 
-          {/* Toolbar */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            <button
-              onClick={() => insertComponent('warning')}
-              className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-md hover:bg-yellow-200 transition-colors"
-            >
-              ⚠️ Warning
-            </button>
-            <button
-              onClick={() => insertComponent('quote')}
-              className="px-3 py-1 bg-blue-100 text-blue-800 rounded-md hover:bg-blue-200 transition-colors"
-            >
-              💬 Quote
-            </button>
-            <button
-              onClick={() => insertComponent('image')}
-              className="px-3 py-1 bg-green-100 text-green-800 rounded-md hover:bg-green-200 transition-colors"
-            >
-              🖼️ Image
-            </button>
-            <button
-              onClick={() => insertComponent('spoiler')}
-              className="px-3 py-1 bg-purple-100 text-purple-800 rounded-md hover:bg-purple-200 transition-colors"
-            >
-              🔒 Spoiler
-            </button>
-          </div>
+                          {/* Toolbar */}
+                <div className="mb-4">
+                  <h3 className="text-sm font-semibold text-gray-700 mb-2">📝 Text Formatting</h3>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    <button
+                      onClick={() => insertComponent('h1')}
+                      className="px-3 py-1 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200 transition-colors text-sm"
+                    >
+                      H1
+                    </button>
+                    <button
+                      onClick={() => insertComponent('h2')}
+                      className="px-3 py-1 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200 transition-colors text-sm"
+                    >
+                      H2
+                    </button>
+                    <button
+                      onClick={() => insertComponent('h3')}
+                      className="px-3 py-1 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200 transition-colors text-sm"
+                    >
+                      H3
+                    </button>
+                    <button
+                      onClick={() => insertComponent('bold')}
+                      className="px-3 py-1 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200 transition-colors text-sm font-bold"
+                    >
+                      B
+                    </button>
+                    <button
+                      onClick={() => insertComponent('italic')}
+                      className="px-3 py-1 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200 transition-colors text-sm italic"
+                    >
+                      I
+                    </button>
+                    <button
+                      onClick={() => insertComponent('list')}
+                      className="px-3 py-1 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200 transition-colors text-sm"
+                    >
+                      📋 List
+                    </button>
+                    <button
+                      onClick={() => insertComponent('link')}
+                      className="px-3 py-1 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200 transition-colors text-sm"
+                    >
+                      🔗 Link
+                    </button>
+                  </div>
+
+                  <h3 className="text-sm font-semibold text-gray-700 mb-2">🎨 Novel Components</h3>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    <button
+                      onClick={() => insertComponent('warning')}
+                      className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-md hover:bg-yellow-200 transition-colors"
+                    >
+                      ⚠️ Warning
+                    </button>
+                    <button
+                      onClick={() => insertComponent('quote')}
+                      className="px-3 py-1 bg-blue-100 text-blue-800 rounded-md hover:bg-blue-200 transition-colors"
+                    >
+                      💬 Quote
+                    </button>
+                    <button
+                      onClick={() => insertComponent('image')}
+                      className="px-3 py-1 bg-green-100 text-green-800 rounded-md hover:bg-green-200 transition-colors"
+                    >
+                      🖼️ Image
+                    </button>
+                    <button
+                      onClick={() => insertComponent('spoiler')}
+                      className="px-3 py-1 bg-purple-100 text-purple-800 rounded-md hover:bg-purple-200 transition-colors"
+                    >
+                      🔒 Spoiler
+                    </button>
+                    <button
+                      onClick={() => insertComponent('character')}
+                      className="px-3 py-1 bg-pink-100 text-pink-800 rounded-md hover:bg-pink-200 transition-colors"
+                    >
+                      👤 Character
+                    </button>
+                    <button
+                      onClick={() => insertComponent('scene')}
+                      className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-md hover:bg-indigo-200 transition-colors"
+                    >
+                      🎭 Scene
+                    </button>
+                    <button
+                      onClick={() => insertComponent('dialogue')}
+                      className="px-3 py-1 bg-orange-100 text-orange-800 rounded-md hover:bg-orange-200 transition-colors"
+                    >
+                      💭 Dialogue
+                    </button>
+                  </div>
+
+                  <h3 className="text-sm font-semibold text-gray-700 mb-2">📚 Story Elements</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      onClick={() => insertComponent('chapter')}
+                      className="px-3 py-1 bg-red-100 text-red-800 rounded-md hover:bg-red-200 transition-colors"
+                    >
+                      📖 Chapter
+                    </button>
+                    <button
+                      onClick={() => insertComponent('time')}
+                      className="px-3 py-1 bg-teal-100 text-teal-800 rounded-md hover:bg-teal-200 transition-colors"
+                    >
+                      ⏰ Time
+                    </button>
+                    <button
+                      onClick={() => insertComponent('location')}
+                      className="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-md hover:bg-cyan-200 transition-colors"
+                    >
+                      🗺️ Location
+                    </button>
+                    <button
+                      onClick={() => insertComponent('emotion')}
+                      className="px-3 py-1 bg-rose-100 text-rose-800 rounded-md hover:bg-rose-200 transition-colors"
+                    >
+                      😊 Emotion
+                    </button>
+                  </div>
+                </div>
 
           {/* Action Buttons */}
           <div className="flex gap-2">
