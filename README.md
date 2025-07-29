@@ -54,7 +54,7 @@ novel-vercel/
 
 1. **Clone repository**
 ```bash
-git clone https://github.com/yourusername/novel-vercel.git
+git clone https://github.com/muhammad-zainal-muttaqin/novel-vercel.git
 cd novel-vercel
 ```
 
@@ -267,9 +267,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🆘 Support
 
-- **Documentation**: [Wiki](https://github.com/yourusername/novel-vercel/wiki)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/novel-vercel/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/novel-vercel/discussions)
+- **Documentation**: [Wiki](https://github.com/muhammad-zainal-muttaqin/novel-vercel/wiki)
+- **Issues**: [GitHub Issues](https://github.com/muhammad-zainal-muttaqin/novel-vercel/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/muhammad-zainal-muttaqin/novel-vercel/discussions)
 
 ## 🗺️ Roadmap
 
