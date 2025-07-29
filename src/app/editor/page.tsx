@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import MDXRenderer from '@/components/MDXRenderer';
+import { analytics } from '@/utils/analytics';
 
 export default function EditorPage() {
   const [content, setContent] = useState('');
@@ -69,6 +70,9 @@ export default function EditorPage() {
     setMessage('Menyimpan...');
 
     try {
+      // Track editor save event
+      analytics.trackEditorUsage('save_chapter');
+      
       // Simulasi save ke GitHub (akan diimplementasikan nanti)
       await new Promise(resolve => setTimeout(resolve, 1000));
       

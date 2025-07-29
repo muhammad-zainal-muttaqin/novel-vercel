@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, Lora } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 // Primary serif font for novel content (Baskerville alternative)
@@ -81,6 +82,7 @@ export default function RootLayout({
         className={`${playfairDisplay.variable} ${lora.variable} ${inter.variable} antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );

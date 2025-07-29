@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getNovelBySlug, getChapterContent, getAdjacentChapters } from '@/utils/contentHelpers';
 import { notFound } from 'next/navigation';
 import MDXRenderer from '@/components/MDXRenderer';
+import { analytics } from '@/utils/analytics';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -82,6 +83,11 @@ export default async function ChapterPage({ params }: PageProps) {
   }
 
   const { prevChapter, nextChapter } = getAdjacentChapters(slug, currentChapter.number);
+
+  // Track chapter read event
+  if (typeof window !== 'undefined') {
+    analytics.trackNovelRead(novel.metadata.title, currentChapter.number);
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
