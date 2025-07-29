@@ -1,4 +1,12 @@
 import type { NextConfig } from "next";
+import createMDX from '@next/mdx';
+
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
 
 const nextConfig: NextConfig = {
   // MDX Configuration
@@ -70,4 +78,4 @@ const nextConfig: NextConfig = {
   }
 };
 
-export default nextConfig;
+export default withMDX(nextConfig);

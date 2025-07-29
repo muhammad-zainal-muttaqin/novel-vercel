@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { getNovelBySlug, getChapterContent, getAdjacentChapters } from '@/utils/contentHelpers';
 import { notFound } from 'next/navigation';
-import { mdxComponents } from '@/components/MDXComponents';
+import MDXRenderer from '@/components/MDXRenderer';
 
 interface PageProps {
   params: Promise<{
@@ -64,14 +64,9 @@ export default async function ChapterPage({ params }: PageProps) {
             </div>
           </header>
 
-          {/* MDX Content akan di-render di sini */}
-          <div className="prose prose-lg max-w-none">
-            <div className="text-gray-700 leading-relaxed">
-              {/* Untuk sementara tampilkan sebagai plain text */}
-              <pre className="whitespace-pre-wrap font-sans text-base">
-                {chapterContent}
-              </pre>
-            </div>
+          {/* MDX Content */}
+          <div className="text-gray-700 leading-relaxed">
+            <MDXRenderer content={chapterContent} />
           </div>
         </article>
 

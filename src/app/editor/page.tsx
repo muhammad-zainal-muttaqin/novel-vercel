@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import MDXRenderer from '@/components/MDXRenderer';
 
 export default function EditorPage() {
   const [content, setContent] = useState('');
@@ -197,13 +198,13 @@ Konten novel Anda di sini...`}
             <div className="p-6 border-b border-gray-200">
               <h2 className="text-lg font-semibold text-gray-900">Preview</h2>
               <p className="text-sm text-gray-600 mt-1">
-                Preview konten chapter (akan diimplementasikan dengan MDX rendering)
+                Preview konten chapter dengan MDX rendering
               </p>
             </div>
             <div className="p-6">
-              <pre className="whitespace-pre-wrap text-sm text-gray-900 bg-gray-100 p-4 rounded-md overflow-auto max-h-96 border border-gray-200">
-                {content}
-              </pre>
+              <div className="bg-gray-100 p-4 rounded-md overflow-auto max-h-96 border border-gray-200">
+                <MDXRenderer content={content} />
+              </div>
             </div>
           </div>
         )}
