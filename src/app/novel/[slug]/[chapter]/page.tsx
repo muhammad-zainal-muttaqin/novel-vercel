@@ -4,32 +4,33 @@ import { notFound } from 'next/navigation';
 import { mdxComponents } from '@/components/MDXComponents';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
     chapter: string;
-  };
+  }>;
 }
 
-export default function ChapterPage({ params }: PageProps) {
-  const novel = getNovelBySlug(params.slug);
+export default async function ChapterPage({ params }: PageProps) {
+  const { slug, chapter } = await params;
+  const novel = getNovelBySlug(slug);
   
   if (!novel) {
     notFound();
   }
 
-  const chapterContent = getChapterContent(params.slug, params.chapter);
+  const chapterContent = getChapterContent(slug, chapter);
   
   if (!chapterContent) {
     notFound();
   }
 
-  const currentChapter = novel.metadata.chapters.find(ch => ch.slug === params.chapter);
+  const currentChapter = novel.metadata.chapters.find(ch => ch.slug === chapter);
   
   if (!currentChapter) {
     notFound();
   }
 
-  const { prevChapter, nextChapter } = getAdjacentChapters(params.slug, currentChapter.number);
+  const { prevChapter, nextChapter } = getAdjacentChapters(slug, currentChapter.number);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -38,7 +39,7 @@ export default function ChapterPage({ params }: PageProps) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div>
-              <Link href={`/novel/${params.slug}`} className="text-blue-600 hover:text-blue-800 transition-colors">
+              <Link href={`/novel/${slug}`} className="text-blue-600 hover:text-blue-800 transition-colors">
                 ← {novel.metadata.title}
               </Link>
             </div>
@@ -79,7 +80,7 @@ export default function ChapterPage({ params }: PageProps) {
           <div className="flex justify-between items-center">
             {prevChapter ? (
               <Link 
-                href={`/novel/${params.slug}/${prevChapter.slug}`}
+                href={`/novel/${slug}/${prevChapter.slug}`}
                 className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
               >
                 <span className="mr-2">←</span>
@@ -94,7 +95,7 @@ export default function ChapterPage({ params }: PageProps) {
             
             {nextChapter ? (
               <Link 
-                href={`/novel/${params.slug}/${nextChapter.slug}`}
+                href={`/novel/${slug}/${nextChapter.slug}`}
                 className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
               >
                 <div className="text-right">
@@ -112,7 +113,7 @@ export default function ChapterPage({ params }: PageProps) {
         {/* Back to Novel */}
         <div className="text-center mt-8">
           <Link 
-            href={`/novel/${params.slug}`}
+            href={`/novel/${slug}`}
             className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
           >
             📖 Kembali ke Daftar Chapter

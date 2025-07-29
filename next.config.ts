@@ -13,7 +13,6 @@ const nextConfig: NextConfig = {
   },
   
   // Optimizations
-  swcMinify: true,
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,

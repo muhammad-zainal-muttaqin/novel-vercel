@@ -3,13 +3,14 @@ import { getNovelBySlug } from '@/utils/contentHelpers';
 import { notFound } from 'next/navigation';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default function NovelDetailPage({ params }: PageProps) {
-  const novel = getNovelBySlug(params.slug);
+export default async function NovelDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const novel = getNovelBySlug(slug);
   
   if (!novel) {
     notFound();
