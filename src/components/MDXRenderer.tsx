@@ -123,74 +123,165 @@ export default function MDXRenderer({ content }: MDXRendererProps) {
         return lines.map((line, lineIndex) => {
           const trimmedLine = line.trim();
           
-          if (trimmedLine.startsWith('# ')) {
-            return <h1 key={`${index}-${lineIndex}`} className="text-3xl font-bold mb-6 text-gray-900">{trimmedLine.substring(2)}</h1>;
-          }
-          if (trimmedLine.startsWith('## ')) {
-            return <h2 key={`${index}-${lineIndex}`} className="text-2xl font-semibold mb-4 text-gray-800">{trimmedLine.substring(3)}</h2>;
-          }
-          if (trimmedLine.startsWith('### ')) {
-            return <h3 key={`${index}-${lineIndex}`} className="text-xl font-medium mb-3 text-gray-700">{trimmedLine.substring(4)}</h3>;
-          }
-          if (trimmedLine.startsWith('#### ')) {
-            return <h4 key={`${index}-${lineIndex}`} className="text-lg font-medium mb-2 text-gray-700">{trimmedLine.substring(5)}</h4>;
-          }
-          if (trimmedLine.startsWith('##### ')) {
-            return <h5 key={`${index}-${lineIndex}`} className="text-base font-medium mb-2 text-gray-700">{trimmedLine.substring(6)}</h5>;
-          }
-                           if (trimmedLine.startsWith('###### ')) {
-                   return <h6 key={`${index}-${lineIndex}`} className="text-sm font-medium mb-2 text-gray-700">{trimmedLine.substring(7)}</h6>;
+                           if (trimmedLine.startsWith('# ')) {
+                   const headingContent = trimmedLine.substring(2);
+                   const renderFormattedText = (text: string) => {
+                     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                     text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                     return text;
+                   };
+                   
+                   return (
+                     <h1 
+                       key={`${index}-${lineIndex}`} 
+                       className="text-3xl font-bold mb-6 text-gray-900"
+                       dangerouslySetInnerHTML={{ __html: renderFormattedText(headingContent) }}
+                     />
+                   );
+                 }
+                 if (trimmedLine.startsWith('## ')) {
+                   const headingContent = trimmedLine.substring(3);
+                   const renderFormattedText = (text: string) => {
+                     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                     text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                     return text;
+                   };
+                   
+                   return (
+                     <h2 
+                       key={`${index}-${lineIndex}`} 
+                       className="text-2xl font-semibold mb-4 text-gray-800"
+                       dangerouslySetInnerHTML={{ __html: renderFormattedText(headingContent) }}
+                     />
+                   );
+                 }
+                 if (trimmedLine.startsWith('### ')) {
+                   const headingContent = trimmedLine.substring(4);
+                   const renderFormattedText = (text: string) => {
+                     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                     text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                     return text;
+                   };
+                   
+                   return (
+                     <h3 
+                       key={`${index}-${lineIndex}`} 
+                       className="text-xl font-medium mb-3 text-gray-700"
+                       dangerouslySetInnerHTML={{ __html: renderFormattedText(headingContent) }}
+                     />
+                   );
+                 }
+                 if (trimmedLine.startsWith('#### ')) {
+                   const headingContent = trimmedLine.substring(5);
+                   const renderFormattedText = (text: string) => {
+                     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                     text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                     return text;
+                   };
+                   
+                   return (
+                     <h4 
+                       key={`${index}-${lineIndex}`} 
+                       className="text-lg font-medium mb-2 text-gray-700"
+                       dangerouslySetInnerHTML={{ __html: renderFormattedText(headingContent) }}
+                     />
+                   );
+                 }
+                 if (trimmedLine.startsWith('##### ')) {
+                   const headingContent = trimmedLine.substring(6);
+                   const renderFormattedText = (text: string) => {
+                     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                     text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                     return text;
+                   };
+                   
+                   return (
+                     <h5 
+                       key={`${index}-${lineIndex}`} 
+                       className="text-base font-medium mb-2 text-gray-700"
+                       dangerouslySetInnerHTML={{ __html: renderFormattedText(headingContent) }}
+                     />
+                   );
+                 }
+                 if (trimmedLine.startsWith('###### ')) {
+                   const headingContent = trimmedLine.substring(7);
+                   const renderFormattedText = (text: string) => {
+                     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                     text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                     return text;
+                   };
+                   
+                   return (
+                     <h6 
+                       key={`${index}-${lineIndex}`} 
+                       className="text-sm font-medium mb-2 text-gray-700"
+                       dangerouslySetInnerHTML={{ __html: renderFormattedText(headingContent) }}
+                     />
+                   );
                  }
                  
                  // List items
                  if (trimmedLine.startsWith('- ') || trimmedLine.startsWith('* ')) {
-                   return <li key={`${index}-${lineIndex}`} className="mb-1 text-gray-700">{trimmedLine.substring(2)}</li>;
+                   const listContent = trimmedLine.substring(2);
+                   const renderFormattedText = (text: string) => {
+                     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                     text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                     text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">$1</a>');
+                     return text;
+                   };
+                   
+                   return (
+                     <li 
+                       key={`${index}-${lineIndex}`} 
+                       className="mb-1 text-gray-700"
+                       dangerouslySetInnerHTML={{ __html: renderFormattedText(listContent) }}
+                     />
+                   );
                  }
                  
                  // Numbered list items
                  if (/^\d+\.\s/.test(trimmedLine)) {
-                   return <li key={`${index}-${lineIndex}`} className="mb-1 text-gray-700">{trimmedLine.replace(/^\d+\.\s/, '')}</li>;
+                   const listContent = trimmedLine.replace(/^\d+\.\s/, '');
+                   const renderFormattedText = (text: string) => {
+                     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                     text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                     text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">$1</a>');
+                     return text;
+                   };
+                   
+                   return (
+                     <li 
+                       key={`${index}-${lineIndex}`} 
+                       className="mb-1 text-gray-700"
+                       dangerouslySetInnerHTML={{ __html: renderFormattedText(listContent) }}
+                     />
+                   );
                  }
           
                            // Regular paragraph
                  if (trimmedLine) {
-                   // Parse links in the text
-                   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-                   const parts = [];
-                   let lastIndex = 0;
-                   let match;
-                   
-                   while ((match = linkRegex.exec(trimmedLine)) !== null) {
-                     // Add text before the link
-                     if (match.index > lastIndex) {
-                       parts.push(trimmedLine.slice(lastIndex, match.index));
-                     }
+                   // Parse markdown formatting and links
+                   const renderFormattedText = (text: string) => {
+                     // Parse bold text
+                     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
                      
-                     // Add the link
-                     parts.push(
-                       <a 
-                         key={`link-${match.index}`}
-                         href={match[2]} 
-                         target="_blank" 
-                         rel="noopener noreferrer"
-                         className="text-blue-600 hover:text-blue-800 underline"
-                       >
-                         {match[1]}
-                       </a>
-                     );
+                     // Parse italic text
+                     text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
                      
-                     lastIndex = match.index + match[0].length;
-                   }
+                     // Parse links
+                     text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">$1</a>');
+                     
+                     return text;
+                   };
                    
-                   // Add remaining text
-                   if (lastIndex < trimmedLine.length) {
-                     parts.push(trimmedLine.slice(lastIndex));
-                   }
+                   const formattedText = renderFormattedText(trimmedLine);
                    
                    return (
-                     <p key={`${index}-${lineIndex}`} className="mb-4 leading-relaxed text-gray-700">
-                       {parts.length > 0 ? parts : trimmedLine}
-                     </p>
+                     <p 
+                       key={`${index}-${lineIndex}`} 
+                       className="mb-4 leading-relaxed text-gray-700"
+                       dangerouslySetInnerHTML={{ __html: formattedText }}
+                     />
                    );
                  }
           
