@@ -15,12 +15,7 @@ export default function Home() {
               <p className="text-gray-600 mt-1">Platform baca novel online yang cepat dan ringan</p>
             </div>
             <div className="flex gap-4">
-              <Link 
-                href="/editor"
-                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-              >
-                ✏️ Editor
-              </Link>
+              {/* Editor link tersembunyi dari user biasa */}
             </div>
           </div>
         </div>
@@ -48,14 +43,8 @@ export default function Home() {
               <div className="text-6xl mb-4">📚</div>
               <h4 className="text-xl font-medium text-gray-900 mb-2">Belum ada novel</h4>
               <p className="text-gray-600 mb-4">
-                Novel pertama akan muncul di sini setelah Anda menulis menggunakan editor.
+                Novel pertama akan muncul di sini segera. Silakan cek kembali nanti!
               </p>
-              <Link 
-                href="/editor"
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-              >
-                ✏️ Mulai Menulis Novel
-              </Link>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -123,17 +112,14 @@ export default function Home() {
         {/* CTA */}
         <div className="text-center bg-blue-50 rounded-lg p-8">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Siap Menulis Novel Pertama Anda?
+            Platform Baca Novel Terbaik
           </h3>
           <p className="text-gray-600 mb-6">
-            Gunakan editor MDX kami untuk menulis novel dengan komponen interaktif.
+            Nikmati pengalaman membaca novel yang cepat, ringan, dan nyaman dengan komponen interaktif.
           </p>
-          <Link 
-            href="/editor"
-            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-lg font-medium"
-          >
-            ✏️ Mulai Menulis Sekarang
-          </Link>
+          <div className="text-sm text-gray-500">
+            Editor tersedia untuk penulis yang sudah terdaftar
+          </div>
         </div>
       </main>
 
