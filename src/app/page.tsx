@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getAllNovels } from '@/utils/contentHelpers';
+import { performance } from '@/utils/performance';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -13,6 +14,11 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const novels = getAllNovels();
+
+  // Track page load performance
+  if (typeof window !== 'undefined') {
+    performance.trackPageLoad('Homepage');
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
