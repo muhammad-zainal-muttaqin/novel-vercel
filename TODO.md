@@ -210,18 +210,39 @@
 - [x] CDN integration (Vercel Edge Network)
 
 ### 📱 Mobile & PWA
-- [ ] Mobile-first responsive design
+- [x] Mobile-first responsive design
 - [ ] PWA setup (manifest, service worker)
 - [ ] Offline reading capability
 - [ ] Touch gestures untuk navigation
 - [ ] Mobile-specific UI improvements
+- [ ] Install as app functionality
+- [ ] Push notifications untuk update chapter
 
 ### 🔍 Advanced Features
-- [ ] Advanced search dengan filters
+- [ ] Advanced search dengan filters (genre, status, author)
 - [ ] Reading statistics dashboard
 - [ ] User preferences storage
 - [ ] Social sharing buttons
 - [ ] Comment system (GitHub Discussions)
+- [ ] Reading progress tracking
+- [ ] Personal library/bookmarks
+- [ ] Reading history
+- [ ] User ratings & reviews
+- [ ] Novel recommendations
+- [ ] Trending novels section
+- [ ] Latest updates feed
+
+### 👤 User System
+- [ ] User registration & login
+- [ ] User profiles & avatars
+- [ ] Personal reading library
+- [ ] Reading progress sync
+- [ ] Bookmark system
+- [ ] Reading history tracking
+- [ ] User preferences (theme, font size)
+- [ ] Notification preferences
+- [ ] Social features (follow authors, share)
+- [ ] User-generated content (reviews, comments)
 
 ---
 
@@ -232,6 +253,10 @@
 - [x] Test semua komponen MDX dengan content real
 - [ ] Optimasi images untuk sample content
 - [x] Setup metadata yang lengkap
+- [ ] Tambah novel anime/manga Jepang
+- [ ] Setup genre categories (Action, Romance, Fantasy, Isekai, etc.)
+- [ ] Add author profiles
+- [ ] Create sample reviews & ratings
 
 ### 📖 Documentation
 - [x] README.md untuk setup project
@@ -239,6 +264,9 @@
 - [ ] API documentation (jika ada)
 - [x] Deployment guide
 - [ ] Troubleshooting guide
+- [ ] User guide untuk pembaca
+- [ ] Genre guide & recommendations
+- [ ] FAQ section
 
 ### 🧹 Maintenance
 - [ ] Setup automated backup
@@ -246,6 +274,9 @@
 - [ ] Performance monitoring dashboard
 - [ ] Regular dependency updates
 - [ ] Security audit checklist
+- [ ] Content moderation system
+- [ ] User feedback collection
+- [ ] Analytics tracking setup
 
 ---
 
@@ -272,9 +303,9 @@
 
 ## 📊 Progress Summary
 
-### Completed Tasks: 78/85 (92%)
-### Current Phase: Phase 9 - Launch Preparation (Completed)
-### Next Priority: Phase 8 - Content & Documentation (Optional)
+### Completed Tasks: 78/95 (82%)
+### Current Phase: Phase 7 - Optimization & Advanced Features (In Progress)
+### Next Priority: Phase 8 - User System & Content Enhancement
 
 ---
 
@@ -300,11 +331,16 @@ npm run dev
 ## 📝 Notes & Ideas
 
 ### Future Enhancements:
-- [ ] Multi-language support
+- [ ] Multi-language support (Japanese/English)
 - [ ] Advanced editor dengan collaboration
-- [ ] User subscription system
 - [ ] Mobile app integration
 - [ ] AI-powered content recommendations
+- [ ] Anime/manga adaptation tracking
+- [ ] Character database & profiles
+- [ ] Season/arc organization
+- [ ] Fan art integration
+- [ ] Community features (forums, discussions)
+- [ ] Reading challenges & achievements
 
 ### Performance Targets:
 - [ ] Page load time < 2 seconds
