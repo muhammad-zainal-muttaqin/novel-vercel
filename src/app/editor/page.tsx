@@ -260,13 +260,15 @@ export default function EditorPage() {
             <button
               onClick={handleSave}
               disabled={isSaving}
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 transition-colors"
+              className="px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 disabled:opacity-50 transition-colors shadow-sm"
+              style={{ color: 'white !important', fontWeight: '500 !important' }}
             >
               {isSaving ? 'Menyimpan...' : '💾 Simpan Chapter'}
             </button>
             <button
               onClick={handleClear}
-              className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
+              className="px-4 py-2 bg-red-600 text-white font-medium rounded-md hover:bg-red-700 transition-colors shadow-sm"
+              style={{ color: 'white !important', fontWeight: '500 !important' }}
             >
               🗑️ Hapus Draft
             </button>
