@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   title: "Novel Vercel - Platform Baca Novel Online",
   description: "Platform baca dan tulis novel berbasis web yang cepat, ringan, dan skalabel menggunakan Next.js, MDX, dan Vercel.",
   keywords: ["novel", "reading", "mdx", "nextjs", "vercel", "indonesia"],
-  authors: [{ name: "Novel Vercel Team" }],
-  creator: "Novel Vercel",
+  authors: [{ name: "Syqrel" }],
+  creator: "Syqrel",
   publisher: "Novel Vercel",
   formatDetection: {
     email: false,

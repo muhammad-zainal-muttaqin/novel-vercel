@@ -320,4 +320,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ using Next.js, MDX, and Vercel**
+**Made with ❤️ by Syqrel using Next.js, MDX, and Vercel**
+
+© 2025 Novel Vercel. All rights reserved.

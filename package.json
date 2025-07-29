@@ -2,6 +2,7 @@
   "name": "novel-vercel",
   "version": "0.1.0",
   "private": true,
+  "author": "Syqrel",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
