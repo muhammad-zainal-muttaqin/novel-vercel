@@ -1,0 +1,37 @@
+{
+  "title": "The Legend of Aria",
+  "author": "Novel Author",
+  "genre": "Fantasy",
+  "description": "Sebuah kisah epik tentang Aria, seorang pahlawan yang harus mengemban misi untuk menyelamatkan dunia dari kehancuran.",
+  "coverImage": "/images/cover.jpg",
+  "status": "ongoing",
+  "totalChapters": 5,
+  "publishedAt": "2024-07-29T00:00:00.000Z",
+  "updatedAt": "2024-07-29T00:00:00.000Z",
+  "tags": ["fantasy", "adventure", "magic", "hero"],
+  "rating": 4.5,
+  "readCount": 0,
+  "chapters": [
+    {
+      "number": 1,
+      "title": "The Beginning",
+      "slug": "chapter-1",
+      "publishedAt": "2024-07-29T00:00:00.000Z",
+      "wordCount": 2500
+    },
+    {
+      "number": 2,
+      "title": "The Awakening",
+      "slug": "chapter-2",
+      "publishedAt": "2024-07-29T00:00:00.000Z",
+      "wordCount": 2800
+    },
+    {
+      "number": 3,
+      "title": "The Journey Begins",
+      "slug": "chapter-3",
+      "publishedAt": "2024-07-29T00:00:00.000Z",
+      "wordCount": 3200
+    }
+  ]
+} 
