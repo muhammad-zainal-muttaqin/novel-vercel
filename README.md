@@ -10,8 +10,19 @@ Platform baca dan tulis novel berbasis web yang cepat, ringan, dan skalabel meng
 - **📱 Responsive**: Optimized untuk desktop dan mobile
 - **⚡ Performance**: Static site generation untuk kecepatan maksimal
 - **🔍 SEO Optimized**: Meta tags, sitemap, dan structured data
-- **🎨 Custom Components**: Warning, Quote, Image, Spoiler, dan lainnya
+- **🎨 Custom Components**: Warning, Quote, Image, Spoiler, Character, Scene, Dialogue, TimeIndicator, Location, Emotion
 - **📊 Analytics**: Reading progress tracking dan analytics
+- **📝 Markdown Support**: Bold, italic, links, dan formatting lengkap
+
+## 🆕 Latest Updates
+
+### ✅ Recently Completed (January 2025)
+- **Enhanced Editor UI/UX**: Comprehensive toolbar dengan 15+ komponen MDX
+- **Advanced MDX Components**: Character, Scene, Dialogue, TimeIndicator, Location, Emotion
+- **Markdown Formatting**: Support untuk bold, italic, dan clickable links
+- **Text Contrast Fixes**: Improved readability untuk semua komponen
+- **Sample Content**: Chapter-2.mdx dengan semua fitur MDX
+- **Progress Tracking**: 61% completion (52/85 tasks)
 
 ## 🚀 Tech Stack
 
@@ -273,29 +284,35 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🗺️ Roadmap
 
-### Phase 1 ✅
+### Phase 1 ✅ (Completed)
 - [x] Basic MDX rendering
-- [x] Custom components
+- [x] Custom components (Warning, Quote, Image, Spoiler)
 - [x] Content management
 - [x] Basic authentication
 
-### Phase 2 🔄
-- [ ] Advanced editor features
-- [ ] GitHub integration
-- [ ] Reading progress tracking
-- [ ] Dark mode
+### Phase 2 ✅ (Completed)
+- [x] Advanced editor features
+- [x] GitHub integration
+- [x] Reading progress tracking
+- [x] Enhanced MDX components (Character, Scene, Dialogue, TimeIndicator, Location, Emotion)
+- [x] Markdown formatting support (bold, italic, links)
+- [x] Comprehensive toolbar dengan 15+ components
 
-### Phase 3 📋
+### Phase 3 🔄 (In Progress)
 - [ ] User comments
 - [ ] Search functionality
 - [ ] Mobile PWA
 - [ ] Offline reading
+- [ ] Dark mode support
+- [ ] Performance optimization
 
-### Phase 4 📋
+### Phase 4 📋 (Planned)
 - [ ] User subscriptions
 - [ ] Advanced analytics
 - [ ] Multi-language support
 - [ ] API for mobile apps
+- [ ] Advanced search dengan filters
+- [ ] Social sharing features
 
 ---
 
