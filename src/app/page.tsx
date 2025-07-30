@@ -1,6 +1,7 @@
 import { getAllNovels } from '@/utils/contentHelpers';
 import { performance } from '@/utils/performance';
 import Button from '@/components/Button';
+import BackToTop from '@/components/BackToTop';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -197,34 +198,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white shadow-xl">
-          <h3 className="text-3xl font-bold mb-4">
-            Siap Memulai Petualangan?
-          </h3>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
-            Bergabunglah dengan ribuan pembaca yang sudah menikmati cerita-cerita menarik di Novel Vercel. 
-            Mulai baca sekarang juga!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              href="#novels" 
-              variant="primary"
-              size="lg"
-              className="bg-yellow-400 text-gray-900 hover:bg-yellow-300 hover:text-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-yellow-400"
-            >
-              🚀 Mulai Baca Sekarang
-            </Button>
-            <Button 
-              href="#novels" 
-              variant="secondary"
-              size="lg"
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              📚 Jelajahi Novel
-            </Button>
-          </div>
-        </div>
+
       </main>
 
       {/* Footer */}
@@ -271,6 +245,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Back to Top Button */}
+      <BackToTop />
     </div>
   );
 }
