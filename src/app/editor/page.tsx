@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import MDXRenderer from '@/components/MDXRenderer';
 import { analytics } from '@/utils/analytics';
+import Button from '@/components/Button';
 
 export default function EditorPage() {
   const [content, setContent] = useState('');
@@ -257,47 +258,19 @@ export default function EditorPage() {
 
                      {/* Action Buttons */}
            <div className="flex gap-2">
-             <button
+             <Button
                onClick={handleSave}
                disabled={isSaving}
-               className="px-4 py-2 rounded-md disabled:opacity-50 transition-colors shadow-sm"
-               style={{ 
-                 backgroundColor: '#2563eb',
-                 color: '#ffffff',
-                 fontWeight: '500',
-                 fontFamily: 'Inter, system-ui, sans-serif',
-                 border: 'none',
-                 cursor: 'pointer'
-               }}
-               onMouseEnter={(e) => {
-                 e.currentTarget.style.backgroundColor = '#1d4ed8';
-               }}
-               onMouseLeave={(e) => {
-                 e.currentTarget.style.backgroundColor = '#2563eb';
-               }}
+               variant="primary"
              >
                {isSaving ? 'Menyimpan...' : '💾 Simpan Chapter'}
-             </button>
-             <button
+             </Button>
+             <Button
                onClick={handleClear}
-               className="px-4 py-2 rounded-md transition-colors shadow-sm"
-               style={{ 
-                 backgroundColor: '#dc2626',
-                 color: '#ffffff',
-                 fontWeight: '500',
-                 fontFamily: 'Inter, system-ui, sans-serif',
-                 border: 'none',
-                 cursor: 'pointer'
-               }}
-               onMouseEnter={(e) => {
-                 e.currentTarget.style.backgroundColor = '#b91c1c';
-               }}
-               onMouseLeave={(e) => {
-                 e.currentTarget.style.backgroundColor = '#dc2626';
-               }}
+               variant="danger"
              >
                🗑️ Hapus Draft
-             </button>
+             </Button>
            </div>
 
           {/* Message */}

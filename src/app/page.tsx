@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { getAllNovels } from '@/utils/contentHelpers';
 import { performance } from '@/utils/performance';
+import Button from '@/components/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -87,20 +87,13 @@ export default function Home() {
                         </span>
                       ))}
                     </div>
-                    <Link 
+                    <Button 
                       href={`/novel/${novel.slug}`}
-                      className="block w-full text-center px-4 py-2 rounded-md transition-colors shadow-sm hover:bg-blue-700"
-                      style={{
-                        backgroundColor: '#2563eb',
-                        color: '#ffffff',
-                        fontWeight: '500',
-                        fontFamily: 'Inter, system-ui, sans-serif',
-                        textDecoration: 'none',
-                        display: 'block'
-                      }}
+                      variant="primary"
+                      className="block w-full text-center"
                     >
                       📖 Baca Novel
-                    </Link>
+                    </Button>
                   </div>
                 </div>
               ))}

@@ -1,8 +1,8 @@
-import Link from 'next/link';
 import { getNovelBySlug, getChapterContent, getAdjacentChapters } from '@/utils/contentHelpers';
 import { notFound } from 'next/navigation';
 import MDXRenderer from '@/components/MDXRenderer';
 import { analytics } from '@/utils/analytics';
+import Button from '@/components/Button';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -96,9 +96,9 @@ export default async function ChapterPage({ params }: PageProps) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div>
-              <Link href={`/novel/${slug}`} className="text-blue-600 hover:text-blue-800 transition-colors">
+              <Button href={`/novel/${slug}`} variant="primary" className="text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
                 ← {novel.metadata.title}
-              </Link>
+              </Button>
             </div>
             <div className="text-sm text-gray-500">
               Chapter {currentChapter.number} dari {novel.metadata.totalChapters}
@@ -131,31 +131,33 @@ export default async function ChapterPage({ params }: PageProps) {
         <div className="bg-white rounded-lg shadow-sm p-6">
           <div className="flex justify-between items-center">
             {prevChapter ? (
-              <Link 
+              <Button 
                 href={`/novel/${slug}/${prevChapter.slug}`}
-                className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+                variant="primary"
+                className="flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none"
               >
                 <span className="mr-2">←</span>
                 <div>
                   <div className="text-sm text-gray-500">Chapter Sebelumnya</div>
                   <div className="font-medium">Chapter {prevChapter.number}: {prevChapter.title}</div>
                 </div>
-              </Link>
+              </Button>
             ) : (
               <div></div>
             )}
             
             {nextChapter ? (
-              <Link 
+              <Button 
                 href={`/novel/${slug}/${nextChapter.slug}`}
-                className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+                variant="primary"
+                className="flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none"
               >
                 <div className="text-right">
                   <div className="text-sm text-gray-500">Chapter Selanjutnya</div>
                   <div className="font-medium">Chapter {nextChapter.number}: {nextChapter.title}</div>
                 </div>
                 <span className="ml-2">→</span>
-              </Link>
+              </Button>
             ) : (
               <div></div>
             )}
@@ -164,12 +166,13 @@ export default async function ChapterPage({ params }: PageProps) {
 
         {/* Back to Novel */}
         <div className="text-center mt-8">
-          <Link 
+          <Button 
             href={`/novel/${slug}`}
-            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors shadow-sm"
+            variant="primary"
+            className="inline-flex items-center"
           >
             📖 Kembali ke Daftar Chapter
-          </Link>
+          </Button>
         </div>
       </main>
     </div>
