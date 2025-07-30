@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { getNovelBySlug } from '@/utils/contentHelpers';
 import { notFound } from 'next/navigation';
+import Button from '@/components/Button';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -64,9 +64,9 @@ export default async function NovelDetailPage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div>
-              <Link href="/" className="text-blue-600 hover:text-blue-800 transition-colors">
+              <Button href="/" variant="primary" className="text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
                 ← Kembali ke Beranda
-              </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -124,9 +124,10 @@ export default async function NovelDetailPage({ params }: PageProps) {
           <div className="divide-y divide-gray-200">
             {novel.metadata.chapters.map((chapter) => (
               <div key={chapter.slug} className="p-6 hover:bg-gray-50 transition-colors">
-                <Link 
+                <Button 
                   href={`/novel/${novel.slug}/${chapter.slug}`}
-                  className="block"
+                  variant="primary"
+                  className="block bg-transparent shadow-none text-left hover:bg-transparent"
                 >
                   <div className="flex items-center justify-between">
                     <div>
@@ -141,7 +142,7 @@ export default async function NovelDetailPage({ params }: PageProps) {
                       →
                     </div>
                   </div>
-                </Link>
+                </Button>
               </div>
             ))}
           </div>

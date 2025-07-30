@@ -100,6 +100,15 @@ const Button: React.FC<ButtonProps> = ({
     success: 'hover:bg-green-700'
   };
 
+  // Override styles jika ada className yang spesifik
+  const finalStyles = {
+    ...combinedStyles,
+    // Jika ada className yang override background, gunakan itu
+    ...(className.includes('bg-transparent') && { backgroundColor: 'transparent' }),
+    ...(className.includes('text-blue-600') && { color: '#2563eb' }),
+    ...(className.includes('shadow-none') && { boxShadow: 'none' })
+  };
+
   const buttonClasses = `
     transition-colors shadow-sm ${hoverClasses[variant]} ${className}
   `.trim();
@@ -110,7 +119,7 @@ const Button: React.FC<ButtonProps> = ({
       <Link
         href={href}
         className={buttonClasses}
-        style={combinedStyles}
+        style={finalStyles}
       >
         {children}
       </Link>
@@ -124,7 +133,7 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
       className={buttonClasses}
-      style={combinedStyles}
+      style={finalStyles}
     >
       {children}
     </button>
