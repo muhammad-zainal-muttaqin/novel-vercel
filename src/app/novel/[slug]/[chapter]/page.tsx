@@ -5,7 +5,6 @@ import { analytics } from '@/utils/analytics';
 import Button from '@/components/Button';
 import ChapterDropdown from '@/components/ChapterDropdown';
 import CompactNavigation from '@/components/CompactNavigation';
-import BackToTop from '@/components/BackToTop';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -303,9 +302,6 @@ export default async function ChapterPage({ params }: PageProps) {
           </div>
         </div>
       </div>
-
-      {/* Back to Top Button */}
-      <BackToTop />
     </div>
   );
 } 
