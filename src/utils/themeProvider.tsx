@@ -36,35 +36,17 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Save theme to localStorage
     localStorage.setItem('theme', theme);
-    
-    // Determine resolved theme
-    let newResolvedTheme: 'light' | 'dark';
-    
-    if (theme === 'system') {
-      newResolvedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    } else {
-      newResolvedTheme = theme;
-    }
-    
-    setResolvedTheme(newResolvedTheme);
-    
-    // Apply theme to document
+    // Determine resolved theme (dark or light)
+    const resolved = theme === 'system'
+      ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      : theme;
+    // Toggle dark class on <html>
     const root = document.documentElement;
-    root.classList.remove('light', 'dark');
-    root.classList.add(newResolvedTheme);
-    
-    // Force reflow to ensure CSS is applied
-    root.offsetHeight;
-    
-    // Debug logging
-    console.log('Theme changed:', { theme, resolvedTheme: newResolvedTheme, mounted });
-    console.log('HTML classes:', root.className);
-    console.log('Body background:', getComputedStyle(document.body).backgroundColor);
-    
-    // Update meta theme-color
+    root.classList.toggle('dark', resolved === 'dark');
+    // Update meta theme-color accordingly
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', newResolvedTheme === 'dark' ? '#1a1a2e' : '#ffffff');
+      metaThemeColor.setAttribute('content', resolved === 'dark' ? '#1a1a2e' : '#ffffff');
     }
   }, [theme]);
 
