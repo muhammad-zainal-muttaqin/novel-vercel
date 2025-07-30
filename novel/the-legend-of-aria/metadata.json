@@ -1,15 +1,15 @@
 {
   "title": "The Legend of Aria",
-  "author": "Novel Author",
+  "author": "Syqrel",
   "genre": "Fantasy",
-  "description": "Sebuah kisah epik tentang Aria, seorang pahlawan yang harus mengemban misi untuk menyelamatkan dunia dari kehancuran.",
+  "description": "Sebuah kisah epik tentang Aria, seorang pahlawan yang harus mengemban misi untuk menyelamatkan dunia dari kehancuran. Perjalanan dari desa kecil Riverdale menuju takdir sebagai penyelamat dunia.",
   "coverImage": "/images/cover.jpg",
-  "status": "ongoing",
-  "totalChapters": 5,
+  "status": "completed",
+  "totalChapters": 10,
   "publishedAt": "2024-07-29T00:00:00.000Z",
-  "updatedAt": "2024-07-29T00:00:00.000Z",
-  "tags": ["fantasy", "adventure", "magic", "hero"],
-  "rating": 4.5,
+  "updatedAt": "2025-01-21T00:00:00.000Z",
+  "tags": ["fantasy", "adventure", "magic", "hero", "friendship", "epic"],
+  "rating": 4.8,
   "readCount": 0,
   "chapters": [
     {
@@ -17,21 +17,70 @@
       "title": "The Beginning",
       "slug": "chapter-1",
       "publishedAt": "2024-07-29T00:00:00.000Z",
-      "wordCount": 2500
+      "wordCount": 1200
     },
     {
       "number": 2,
-      "title": "The Awakening",
+      "title": "The Forest of Whispers",
       "slug": "chapter-2",
-      "publishedAt": "2024-07-29T00:00:00.000Z",
-      "wordCount": 2800
+      "publishedAt": "2024-07-30T00:00:00.000Z",
+      "wordCount": 1100
     },
     {
       "number": 3,
-      "title": "The Journey Begins",
+      "title": "The City of Mages",
       "slug": "chapter-3",
-      "publishedAt": "2024-07-29T00:00:00.000Z",
-      "wordCount": 3200
+      "publishedAt": "2024-07-31T00:00:00.000Z",
+      "wordCount": 1300
+    },
+    {
+      "number": 4,
+      "title": "The Shadow Empire",
+      "slug": "chapter-4",
+      "publishedAt": "2024-08-01T00:00:00.000Z",
+      "wordCount": 1250
+    },
+    {
+      "number": 5,
+      "title": "The Ancient Temple",
+      "slug": "chapter-5",
+      "publishedAt": "2024-08-02T00:00:00.000Z",
+      "wordCount": 1400
+    },
+    {
+      "number": 6,
+      "title": "The Siege of Goldenheart",
+      "slug": "chapter-6",
+      "publishedAt": "2024-08-03T00:00:00.000Z",
+      "wordCount": 1350
+    },
+    {
+      "number": 7,
+      "title": "The Dark Lord Rises",
+      "slug": "chapter-7",
+      "publishedAt": "2024-08-04T00:00:00.000Z",
+      "wordCount": 1200
+    },
+    {
+      "number": 8,
+      "title": "The Final Battle",
+      "slug": "chapter-8",
+      "publishedAt": "2024-08-05T00:00:00.000Z",
+      "wordCount": 1450
+    },
+    {
+      "number": 9,
+      "title": "The Ultimate Sacrifice",
+      "slug": "chapter-9",
+      "publishedAt": "2024-08-06T00:00:00.000Z",
+      "wordCount": 1300
+    },
+    {
+      "number": 10,
+      "title": "The New Dawn",
+      "slug": "chapter-10",
+      "publishedAt": "2024-08-07T00:00:00.000Z",
+      "wordCount": 1800
     }
   ]
 } 
