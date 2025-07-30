@@ -160,3 +160,16 @@ a[class*="w-10"],
 }
 
 /* Remove conflicting button styles - using inline styles instead */
+
+/* Utility classes for homepage */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
