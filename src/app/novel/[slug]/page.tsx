@@ -59,18 +59,18 @@ export default async function NovelDetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div>
-              <Button href="/" variant="primary" className="inline text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
-                ← Kembali ke Beranda
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
+             {/* Header */}
+       <header className="bg-white shadow-sm">
+         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="flex justify-between items-center py-6">
+             <div>
+               <Button href="/" variant="primary" className="inline text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
+                 ← Kembali ke Beranda
+               </Button>
+             </div>
+           </div>
+         </div>
+       </header>
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
