@@ -100,11 +100,13 @@ export default function RootLayout({
                   var theme = localStorage.getItem('theme');
                   var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                   var resolved = theme === 'system' ? systemTheme : (theme || 'light');
-                  // Toggle dark class only
-                  document.documentElement.classList.toggle('dark', resolved === 'dark');
+                  var root = document.documentElement;
+                  root.classList.remove('light', 'dark');
+                  root.classList.add(resolved);
                 } catch (e) {
-                  // Ensure dark class removed on error
-                  document.documentElement.classList.remove('dark');
+                  var root = document.documentElement;
+                  root.classList.remove('light', 'dark');
+                  root.classList.add('light');
                 }
               })();
             `,

@@ -40,10 +40,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const resolved = theme === 'system'
       ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
       : theme;
-    // Toggle dark class on <html>
     const root = document.documentElement;
-    root.classList.toggle('dark', resolved === 'dark');
-    // Update meta theme-color accordingly
+    root.classList.remove('light', 'dark');
+    root.classList.add(resolved);
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
       metaThemeColor.setAttribute('content', resolved === 'dark' ? '#1a1a2e' : '#ffffff');

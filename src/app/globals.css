@@ -31,26 +31,18 @@
   --reading-max-width: 65ch;        /* Optimal line length */
 }
 
-/* ========== THEME SYSTEM ========== */
-:root {
+/* ========== THEME SYSTEM ========= */
+html.light, :root {
   --background: #ffffff;
   --foreground: #171717;
   color-scheme: light;
 }
 
-.dark {
+html.dark {
   --background: #1a1a2e;
   --foreground: #e8e8e8;
   color-scheme: dark;
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* ========== end theme system ========== */
 
 /* ========== BASE STYLES ========== */
 /* Removed all .light overrides - rely on default variables */
