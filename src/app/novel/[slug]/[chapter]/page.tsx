@@ -129,13 +129,13 @@ export default async function ChapterPage({ params }: PageProps) {
 
                 {/* Chapter Navigation */}
         <div className="bg-white rounded-lg shadow-sm p-6">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             {prevChapter ? (
-              <Button 
-                href={`/novel/${slug}/${prevChapter.slug}`}
-                variant="primary"
-                className="inline-block flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none w-full sm:w-auto"
-              >
+                             <Button 
+                 href={`/novel/${slug}/${prevChapter.slug}`}
+                 variant="primary"
+                 className="inline-block flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none w-full md:w-auto"
+               >
                 <span className="mr-2">←</span>
                 <div className="min-w-0 flex-1">
                   <div className="text-sm text-gray-500">Chapter Sebelumnya</div>
@@ -147,11 +147,11 @@ export default async function ChapterPage({ params }: PageProps) {
             )}
             
             {nextChapter ? (
-              <Button 
-                href={`/novel/${slug}/${nextChapter.slug}`}
-                variant="primary"
-                className="inline-block flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none w-full sm:w-auto"
-              >
+                             <Button 
+                 href={`/novel/${slug}/${nextChapter.slug}`}
+                 variant="primary"
+                 className="inline-block flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none w-full md:w-auto"
+               >
                 <div className="text-right min-w-0 flex-1">
                   <div className="text-sm text-gray-500">Chapter Selanjutnya</div>
                   <div className="font-medium truncate">Chapter {nextChapter.number}: {nextChapter.title}</div>
