@@ -89,7 +89,7 @@ export default function Home() {
                     </div>
                     <Link 
                       href={`/novel/${novel.slug}`}
-                      className="block w-full text-center px-4 py-2 rounded-md transition-colors shadow-sm"
+                      className="block w-full text-center px-4 py-2 rounded-md transition-colors shadow-sm hover:bg-blue-700"
                       style={{
                         backgroundColor: '#2563eb',
                         color: '#ffffff',
@@ -97,12 +97,6 @@ export default function Home() {
                         fontFamily: 'Inter, system-ui, sans-serif',
                         textDecoration: 'none',
                         display: 'block'
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = '#1d4ed8';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = '#2563eb';
                       }}
                     >
                       📖 Baca Novel
