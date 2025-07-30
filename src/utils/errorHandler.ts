@@ -89,7 +89,11 @@ export class ErrorHandler {
       'favicon',
       'network request failed',
       'loading css chunk',
-      'loading chunk'
+      'loading chunk',
+      'deprecated',
+      'deprecation',
+      'webkit',
+      'vendor prefix'
     ];
     
     return !nonCriticalPatterns.some(pattern => errorString.includes(pattern));
