@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const novels = getAllNovels();
+  const firstNovel = novels.length > 0 ? novels[0] : null;
 
   // Track page load performance
   if (typeof window !== 'undefined') {
@@ -52,7 +53,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              href="/novel/the-legend-of-aria/chapter-1" 
+              href={firstNovel ? `/novel/${firstNovel.slug}` : "#novels"} 
               variant="primary"
               size="lg"
               className="px-8 py-3 text-lg font-semibold"
@@ -207,20 +208,20 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              href="/novel/the-legend-of-aria/chapter-1" 
+              href="#novels" 
               variant="primary"
               size="lg"
-              className="bg-white text-blue-600 hover:bg-blue-50 hover:text-blue-700 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-yellow-400 text-gray-900 hover:bg-yellow-300 hover:text-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-yellow-400"
             >
               🚀 Mulai Baca Sekarang
             </Button>
             <Button 
-              href="/novel/the-legend-of-aria" 
+              href="#novels" 
               variant="secondary"
               size="lg"
-              className="bg-blue-700 text-white hover:bg-blue-800 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              📖 Info Novel
+              📚 Jelajahi Novel
             </Button>
           </div>
         </div>
