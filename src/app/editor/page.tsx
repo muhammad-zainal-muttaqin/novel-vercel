@@ -260,22 +260,40 @@ export default function EditorPage() {
              <button
                onClick={handleSave}
                disabled={isSaving}
-               className="px-4 py-2 bg-blue-600 rounded-md hover:bg-blue-700 disabled:opacity-50 transition-colors shadow-sm"
+               className="px-4 py-2 rounded-md disabled:opacity-50 transition-colors shadow-sm"
                style={{ 
-                 color: 'white !important', 
-                 fontWeight: '500 !important',
-                 fontFamily: 'var(--font-sans) !important'
+                 backgroundColor: '#2563eb',
+                 color: '#ffffff',
+                 fontWeight: '500',
+                 fontFamily: 'Inter, system-ui, sans-serif',
+                 border: 'none',
+                 cursor: 'pointer'
+               }}
+               onMouseEnter={(e) => {
+                 e.currentTarget.style.backgroundColor = '#1d4ed8';
+               }}
+               onMouseLeave={(e) => {
+                 e.currentTarget.style.backgroundColor = '#2563eb';
                }}
              >
                {isSaving ? 'Menyimpan...' : '💾 Simpan Chapter'}
              </button>
              <button
                onClick={handleClear}
-               className="px-4 py-2 bg-red-600 rounded-md hover:bg-red-700 transition-colors shadow-sm"
+               className="px-4 py-2 rounded-md transition-colors shadow-sm"
                style={{ 
-                 color: 'white !important', 
-                 fontWeight: '500 !important',
-                 fontFamily: 'var(--font-sans) !important'
+                 backgroundColor: '#dc2626',
+                 color: '#ffffff',
+                 fontWeight: '500',
+                 fontFamily: 'Inter, system-ui, sans-serif',
+                 border: 'none',
+                 cursor: 'pointer'
+               }}
+               onMouseEnter={(e) => {
+                 e.currentTarget.style.backgroundColor = '#b91c1c';
+               }}
+               onMouseLeave={(e) => {
+                 e.currentTarget.style.backgroundColor = '#dc2626';
                }}
              >
                🗑️ Hapus Draft
