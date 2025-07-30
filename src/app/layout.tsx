@@ -71,7 +71,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
@@ -82,10 +86,11 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://vercel.app" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body
         className={`${playfairDisplay.variable} ${lora.variable} ${inter.variable} antialiased`}
