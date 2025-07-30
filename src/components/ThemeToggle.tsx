@@ -4,7 +4,7 @@ import { useTheme } from '../utils/themeProvider';
 import { useState, useRef, useEffect } from 'react';
 
 export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme, mounted } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -37,7 +37,7 @@ export function ThemeToggle() {
         title="Toggle theme"
       >
         <span className="text-lg">
-          {resolvedTheme === 'dark' ? '🌙' : '☀️'}
+          {!mounted ? '☀️' : (resolvedTheme === 'dark' ? '🌙' : '☀️')}
         </span>
       </button>
 
