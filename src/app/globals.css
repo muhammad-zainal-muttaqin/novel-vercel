@@ -39,8 +39,25 @@
   --font-serif: var(--font-playfair);
 }
 
+/* Dark mode variables */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+}
+
+/* Light mode variables */
+.light {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+}
+
+/* System preference fallback */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.light):not(.dark) {
     --background: #0a0a0a;
     --foreground: #ededed;
   }

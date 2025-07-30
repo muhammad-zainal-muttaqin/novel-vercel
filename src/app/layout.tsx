@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, Lora } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import '../utils/errorHandler';
+import { ThemeProvider } from '../utils/themeProvider';
 import "./globals.css";
 
 // Primary serif font for novel content (Baskerville alternative)
@@ -95,7 +96,9 @@ export default function RootLayout({
       <body
         className={`${playfairDisplay.variable} ${lora.variable} ${inter.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </body>

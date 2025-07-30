@@ -5,6 +5,7 @@ import { analytics } from '@/utils/analytics';
 import Button from '@/components/Button';
 import ChapterDropdown from '@/components/ChapterDropdown';
 import CompactNavigation from '@/components/CompactNavigation';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -92,13 +93,13 @@ export default async function ChapterPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header dengan Navigasi Compact */}
       <header className="lg:sticky lg:top-0 z-10">
         {/* Mobile Header - Aligned with content */}
         <div className="lg:hidden">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <div className="bg-white shadow-sm rounded-lg px-3 sm:px-6">
+            <div className="bg-white dark:bg-gray-800 shadow-sm rounded-lg px-3 sm:px-6 border border-gray-200 dark:border-gray-700">
             {/* Mobile Layout */}
             <div className="py-3">
             {/* Back button */}
@@ -106,7 +107,7 @@ export default async function ChapterPage({ params }: PageProps) {
               <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none text-sm font-medium">
                 ← {novel.metadata.title}
               </Button>
-              <span className="ml-3 text-xs text-gray-500">
+              <span className="ml-3 text-xs text-gray-500 dark:text-gray-400">
                 {currentChapter.number}/{novel.metadata.totalChapters}
               </span>
             </div>
@@ -170,7 +171,7 @@ export default async function ChapterPage({ params }: PageProps) {
         </div>
 
         {/* Desktop Header - Full width */}
-        <div className="hidden lg:block bg-white shadow-sm">
+        <div className="hidden lg:block bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-4 min-h-[80px]">
               <div className="flex items-center space-x-4">
@@ -186,9 +187,11 @@ export default async function ChapterPage({ params }: PageProps) {
               </div>
               
               <div className="flex items-center space-x-4">
-                <div className="text-sm text-gray-500 hidden lg:block">
+                <div className="text-sm text-gray-500 dark:text-gray-400 hidden lg:block">
                   Chapter {currentChapter.number} dari {novel.metadata.totalChapters}
                 </div>
+                
+                <ThemeToggle />
                 
                 <CompactNavigation 
                   prevChapter={prevChapter || undefined}
@@ -204,25 +207,25 @@ export default async function ChapterPage({ params }: PageProps) {
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 lg:pb-8">
         {/* Chapter Content */}
-        <article className="bg-white rounded-lg shadow-sm p-8 mb-6">
+        <article className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-8 mb-6 border border-gray-200 dark:border-gray-700">
           <header className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4" style={{ fontSize: '1.875rem' }}>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4" style={{ fontSize: '1.875rem' }}>
               Chapter {currentChapter.number}: {currentChapter.title}
             </h1>
-            <div className="flex items-center justify-between text-sm text-gray-500">
+            <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
               <span>📝 {currentChapter.wordCount} kata</span>
               <span>📅 {new Date(currentChapter.publishedAt).toLocaleDateString('id-ID')}</span>
             </div>
           </header>
 
           {/* MDX Content */}
-          <div className="novel-content text-gray-700">
+          <div className="novel-content text-gray-700 dark:text-gray-300">
             <MDXRenderer content={chapterContent} />
           </div>
         </article>
 
         {/* Bottom Navigation - Only visible on desktop */}
-        <div className="hidden lg:block bg-white rounded-lg shadow-sm p-4">
+        <div className="hidden lg:block bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 border border-gray-200 dark:border-gray-700">
           <div className="flex justify-between items-center">
             {/* Chapter Dropdown di Footer */}
             <div className="w-auto">
@@ -256,7 +259,7 @@ export default async function ChapterPage({ params }: PageProps) {
 
       {/* Floating Mobile Navigation - Only visible on mobile */}
       <div className="lg:hidden fixed bottom-4 left-4 right-4 z-20">
-        <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-3">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-3">
           <div className="flex items-center gap-3">
             {/* Chapter Dropdown - Flexible width */}
             <div className="flex-1 min-w-0">
