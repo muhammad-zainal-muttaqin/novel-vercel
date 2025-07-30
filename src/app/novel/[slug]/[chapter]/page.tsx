@@ -257,9 +257,9 @@ export default async function ChapterPage({ params }: PageProps) {
       {/* Floating Mobile Navigation - Only visible on mobile */}
       <div className="lg:hidden fixed bottom-4 left-4 right-4 z-20">
         <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-3">
-          <div className="flex items-center justify-between">
-            {/* Chapter Dropdown - Compact */}
-            <div className="flex-1 mr-3">
+          <div className="flex items-center gap-3">
+            {/* Chapter Dropdown - Flexible width */}
+            <div className="flex-1 min-w-0">
               <ChapterDropdown 
                 chapters={novel.metadata.chapters}
                 currentChapter={chapter}
@@ -267,14 +267,14 @@ export default async function ChapterPage({ params }: PageProps) {
               />
             </div>
             
-            {/* Navigation Buttons - Compact */}
-            <div className="flex gap-2">
+            {/* Navigation Buttons - Fixed width */}
+            <div className="flex gap-2 flex-shrink-0">
               {prevChapter ? (
                 <Button
                   href={`/novel/${slug}/${prevChapter.slug}`}
                   variant="secondary"
                   size="sm"
-                  className="px-3 py-2 text-xs"
+                  className="w-10 h-10 p-0 flex items-center justify-center text-sm"
                 >
                   ←
                 </Button>
@@ -283,7 +283,7 @@ export default async function ChapterPage({ params }: PageProps) {
                   disabled={true}
                   variant="secondary"
                   size="sm"
-                  className="px-3 py-2 text-xs opacity-50"
+                  className="w-10 h-10 p-0 flex items-center justify-center text-sm opacity-50"
                 >
                   ←
                 </Button>
@@ -294,7 +294,7 @@ export default async function ChapterPage({ params }: PageProps) {
                   href={`/novel/${slug}/${nextChapter.slug}`}
                   variant="primary"
                   size="sm"
-                  className="px-3 py-2 text-xs"
+                  className="w-10 h-10 p-0 flex items-center justify-center text-sm"
                 >
                   →
                 </Button>
@@ -303,7 +303,7 @@ export default async function ChapterPage({ params }: PageProps) {
                   disabled={true}
                   variant="primary"
                   size="sm"
-                  className="px-3 py-2 text-xs opacity-50"
+                  className="w-10 h-10 p-0 flex items-center justify-center text-sm opacity-50"
                 >
                   →
                 </Button>
