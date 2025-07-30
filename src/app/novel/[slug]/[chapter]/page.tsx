@@ -97,10 +97,10 @@ export default async function ChapterPage({ params }: PageProps) {
       <header className="lg:sticky lg:top-0 z-10">
         {/* Mobile Header - Aligned with content */}
         <div className="lg:hidden">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-4">
             <div className="bg-white shadow-sm rounded-lg px-3 sm:px-6">
             {/* Mobile Layout */}
-            <div className="py-3">
+            <div className="py-2">
             {/* Back button */}
             <div className="mb-3">
               <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none text-sm font-medium">
@@ -202,7 +202,7 @@ export default async function ChapterPage({ params }: PageProps) {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 lg:pb-8">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-8 pb-24 lg:pb-8">
         {/* Chapter Content */}
         <article className="bg-white rounded-lg shadow-sm p-8 mb-6">
           <header className="mb-8">
