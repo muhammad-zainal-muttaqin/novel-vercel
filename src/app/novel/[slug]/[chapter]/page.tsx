@@ -255,8 +255,7 @@ export default async function ChapterPage({ params }: PageProps) {
       </main>
 
       {/* Floating Mobile Navigation - Only visible on mobile */}
-      <div className="lg:hidden fixed bottom-4 z-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="lg:hidden fixed bottom-4 left-4 right-4 z-20">
         <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-3">
           <div className="flex items-center justify-between">
             {/* Chapter Dropdown - Compact */}
@@ -311,7 +310,6 @@ export default async function ChapterPage({ params }: PageProps) {
               )}
             </div>
           </div>
-        </div>
         </div>
       </div>
     </div>
