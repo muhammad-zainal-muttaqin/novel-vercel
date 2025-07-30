@@ -2,11 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-interface BackToTopProps {
-  position?: 'right' | 'left';
-}
-
-const BackToTop: React.FC<BackToTopProps> = ({ position = 'right' }) => {
+const BackToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -34,14 +30,10 @@ const BackToTop: React.FC<BackToTopProps> = ({ position = 'right' }) => {
     return null;
   }
 
-  const positionClass = position === 'left' 
-    ? 'bottom-6 left-6 md:bottom-6 md:right-6 md:left-auto' 
-    : 'bottom-6 right-6';
-
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed ${positionClass} bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40 group animate-fade-in`}
+      className="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 group animate-fade-in"
       aria-label="Kembali ke atas"
     >
       <svg 

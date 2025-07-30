@@ -1,7 +1,6 @@
 import { getNovelBySlug } from '@/utils/contentHelpers';
 import { notFound } from 'next/navigation';
 import Button from '@/components/Button';
-import BackToTop from '@/components/BackToTop';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -149,8 +148,6 @@ export default async function NovelDetailPage({ params }: PageProps) {
           </div>
         </div>
       </main>
-      
-      <BackToTop />
     </div>
   );
 } 

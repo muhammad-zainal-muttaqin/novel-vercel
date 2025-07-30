@@ -303,8 +303,9 @@ export default async function ChapterPage({ params }: PageProps) {
           </div>
         </div>
       </div>
-      
-      <BackToTop position="left" />
+
+      {/* Back to Top Button */}
+      <BackToTop />
     </div>
   );
 } 
