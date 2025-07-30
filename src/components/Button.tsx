@@ -110,7 +110,13 @@ const Button: React.FC<ButtonProps> = ({
     // Jika ada className yang override display, gunakan itu
     ...(className.includes('block') && { display: 'block' }),
     ...(className.includes('inline') && { display: 'inline' }),
-    ...(className.includes('inline-block') && { display: 'inline-block' })
+    ...(className.includes('inline-block') && { display: 'inline-block' }),
+    // Khusus untuk navigation links, hapus padding dan border radius
+    ...(className.includes('text-blue-600') && className.includes('bg-transparent') && {
+      padding: '0',
+      borderRadius: '0',
+      boxShadow: 'none'
+    })
   };
 
   const buttonClasses = `

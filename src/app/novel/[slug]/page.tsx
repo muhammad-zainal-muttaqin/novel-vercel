@@ -64,7 +64,7 @@ export default async function NovelDetailPage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div>
-              <Button href="/" variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
+              <Button href="/" variant="primary" className="inline text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
                 ← Kembali ke Beranda
               </Button>
             </div>
