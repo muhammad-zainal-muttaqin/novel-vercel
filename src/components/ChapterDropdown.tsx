@@ -18,6 +18,7 @@ interface ChapterDropdownProps {
 export default function ChapterDropdown({ chapters, currentChapter, novelSlug }: ChapterDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedChapter, setSelectedChapter] = useState(currentChapter);
+  const [searchTerm, setSearchTerm] = useState('');
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -41,7 +42,16 @@ export default function ChapterDropdown({ chapters, currentChapter, novelSlug }:
       router.push(`/novel/${novelSlug}/${chapterSlug}`);
     }
     setIsOpen(false);
+    setSearchTerm(''); // Reset search saat chapter dipilih
   };
+
+  // Filter chapters berdasarkan search term
+  const filteredChapters = searchTerm 
+    ? chapters.filter(ch => 
+        ch.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        ch.number.toString().includes(searchTerm)
+      )
+    : chapters;
 
   return (
     <div className="relative" ref={dropdownRef}>
@@ -63,12 +73,25 @@ export default function ChapterDropdown({ chapters, currentChapter, novelSlug }:
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-50 max-h-64 overflow-y-auto">
-          {chapters.map((chapter) => (
+        <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-50 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+          {/* Search box untuk banyak chapter */}
+          {chapters.length > 20 && (
+            <div className="sticky top-0 bg-white border-b border-gray-200 p-2">
+              <input
+                type="text"
+                placeholder="Cari chapter..."
+                className="w-full px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+          )}
+          
+          {filteredChapters.map((chapter) => (
             <button
               key={chapter.slug}
               onClick={() => handleChapterSelect(chapter.slug)}
-              className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 transition-colors ${
+              className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 transition-colors border-b border-gray-50 last:border-b-0 ${
                 chapter.slug === currentChapter 
                   ? 'bg-blue-100 text-blue-700 font-medium' 
                   : 'text-gray-700'
@@ -78,6 +101,20 @@ export default function ChapterDropdown({ chapters, currentChapter, novelSlug }:
               <div className="text-xs text-gray-500 truncate">{chapter.title}</div>
             </button>
           ))}
+          
+          {/* No results message */}
+          {filteredChapters.length === 0 && searchTerm && (
+            <div className="px-3 py-4 text-sm text-gray-500 text-center">
+              Tidak ada chapter yang ditemukan untuk "{searchTerm}"
+            </div>
+          )}
+          
+          {/* Scroll indicator untuk banyak chapter */}
+          {chapters.length > 10 && !searchTerm && (
+            <div className="sticky bottom-0 bg-gray-50 px-3 py-1 text-xs text-gray-500 text-center border-t border-gray-200">
+              {chapters.length} chapters total • Scroll untuk lebih banyak
+            </div>
+          )}
         </div>
       )}
     </div>

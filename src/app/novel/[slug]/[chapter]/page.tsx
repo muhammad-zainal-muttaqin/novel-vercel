@@ -96,22 +96,33 @@ export default async function ChapterPage({ params }: PageProps) {
       {/* Header dengan Navigasi Compact */}
       <header className="bg-white shadow-sm sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-4">
-              <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 gap-3 sm:gap-0">
+            <div className="flex items-center space-x-2 sm:space-x-4 w-full sm:w-auto">
+              <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none text-sm sm:text-base">
                 ← {novel.metadata.title}
               </Button>
               
-              {/* Chapter Dropdown */}
-              <ChapterDropdown 
-                chapters={novel.metadata.chapters}
-                currentChapter={chapter}
-                novelSlug={slug}
-              />
+              {/* Chapter Dropdown - Hidden on mobile, shown on larger screens */}
+              <div className="hidden sm:block">
+                <ChapterDropdown 
+                  chapters={novel.metadata.chapters}
+                  currentChapter={chapter}
+                  novelSlug={slug}
+                />
+              </div>
             </div>
             
-            <div className="flex items-center space-x-4">
-              <div className="text-sm text-gray-500 hidden sm:block">
+            <div className="flex items-center justify-between w-full sm:w-auto space-x-2 sm:space-x-4">
+              {/* Chapter Dropdown - Shown on mobile */}
+              <div className="block sm:hidden flex-1">
+                <ChapterDropdown 
+                  chapters={novel.metadata.chapters}
+                  currentChapter={chapter}
+                  novelSlug={slug}
+                />
+              </div>
+              
+              <div className="text-sm text-gray-500 hidden lg:block">
                 Chapter {currentChapter.number} dari {novel.metadata.totalChapters}
               </div>
               
@@ -148,7 +159,17 @@ export default async function ChapterPage({ params }: PageProps) {
 
         {/* Bottom Navigation */}
         <div className="bg-white rounded-lg shadow-sm p-4">
-          <div className="flex justify-end">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0">
+            {/* Chapter Dropdown di Footer */}
+            <div className="w-full sm:w-auto">
+              <ChapterDropdown 
+                chapters={novel.metadata.chapters}
+                currentChapter={chapter}
+                novelSlug={slug}
+              />
+            </div>
+            
+            {/* Navigation Buttons */}
             <CompactNavigation 
               prevChapter={prevChapter || undefined}
               nextChapter={nextChapter || undefined}
