@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Button from './Button';
 
 interface Chapter {
   slug: string;
@@ -18,63 +18,47 @@ export default function CompactNavigation({ prevChapter, nextChapter, novelSlug 
   return (
     <div className="flex justify-between items-center gap-4">
       {prevChapter ? (
-        <Link
+        <Button
           href={`/novel/${novelSlug}/${prevChapter.slug}`}
-          className="flex items-center px-3 py-2 text-sm bg-white hover:bg-gray-50 text-gray-900 border border-gray-300 rounded-md transition-colors font-medium"
-          style={{
-            backgroundColor: '#ffffff !important',
-            color: '#111827 !important',
-            fontWeight: '500 !important',
-            textDecoration: 'none !important'
-          }}
+          variant="secondary"
+          size="sm"
+          className="flex items-center"
         >
           <span className="mr-1">←</span>
           <span>Prev</span>
-        </Link>
+        </Button>
       ) : (
-        <button 
-          disabled
-          className="flex items-center px-3 py-2 text-sm bg-gray-200 text-gray-800 border border-gray-400 rounded-md cursor-not-allowed font-medium"
-          style={{
-            backgroundColor: '#e5e7eb !important',
-            color: '#1f2937 !important',
-            fontWeight: '500 !important',
-            cursor: 'not-allowed !important'
-          }}
+        <Button
+          disabled={true}
+          variant="secondary"
+          size="sm"
+          className="flex items-center opacity-50"
         >
           <span className="mr-1">←</span>
           <span>Prev</span>
-        </button>
+        </Button>
       )}
       
       {nextChapter ? (
-        <Link
+        <Button
           href={`/novel/${novelSlug}/${nextChapter.slug}`}
-          className="flex items-center px-3 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors font-medium"
-          style={{
-            backgroundColor: '#2563eb !important',
-            color: '#ffffff !important',
-            fontWeight: '500 !important',
-            textDecoration: 'none !important'
-          }}
+          variant="primary"
+          size="sm"
+          className="flex items-center"
         >
           <span>Next</span>
           <span className="ml-1">→</span>
-        </Link>
+        </Button>
       ) : (
-        <button 
-          disabled
-          className="flex items-center px-3 py-2 text-sm bg-gray-200 text-gray-800 border border-gray-400 rounded-md cursor-not-allowed font-medium"
-          style={{
-            backgroundColor: '#e5e7eb !important',
-            color: '#1f2937 !important',
-            fontWeight: '500 !important',
-            cursor: 'not-allowed !important'
-          }}
+        <Button
+          disabled={true}
+          variant="primary"
+          size="sm"
+          className="flex items-center opacity-50"
         >
           <span>Next</span>
           <span className="ml-1">→</span>
-        </button>
+        </Button>
       )}
     </div>
   );
