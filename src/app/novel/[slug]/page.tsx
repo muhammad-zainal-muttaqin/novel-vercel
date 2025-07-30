@@ -62,7 +62,7 @@ export default async function NovelDetailPage({ params }: PageProps) {
              {/* Header */}
        <header className="bg-white shadow-sm">
          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="flex justify-between items-center py-6">
+           <div className="flex justify-between items-center py-6 min-h-[80px]">
              <div>
                <Button href="/" variant="primary" className="inline text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
                  ← Kembali ke Beranda
