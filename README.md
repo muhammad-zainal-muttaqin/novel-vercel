@@ -107,7 +107,8 @@ Set environment variables:
 - ✅ **Custom Components**: Character, Scene, Dialogue, TimeIndicator, Location, Emotion
 - ✅ **Auto-save**: localStorage backup while writing
 - ✅ **Complete Novel**: "The Legend of Aria" - 10 chapters with full story arc
-- ✅ **Image Optimization**: WebP format with proper Next.js Image optimization
+- ✅ **Visual Storytelling**: 11 stunning WebP images across all chapters
+- ✅ **Clean Architecture**: Single source of truth for assets in public/ folder
 
 ## Contributing
 
