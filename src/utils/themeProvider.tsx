@@ -52,8 +52,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     root.classList.remove('light', 'dark');
     root.classList.add(newResolvedTheme);
     
+    // Force reflow to ensure CSS is applied
+    root.offsetHeight;
+    
     // Debug logging
     console.log('Theme changed:', { theme, resolvedTheme: newResolvedTheme, mounted });
+    console.log('HTML classes:', root.className);
+    console.log('Body background:', getComputedStyle(document.body).backgroundColor);
     
     // Update meta theme-color
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
