@@ -92,29 +92,39 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://vercel.app" />
-                 <script
-           dangerouslySetInnerHTML={{
-             __html: `
-               (function() {
-                 try {
-                   var theme = localStorage.getItem('theme') || 'light';
-                   var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                   var resolvedTheme = theme === 'system' ? systemTheme : theme;
-                   
-                   // Always remove both classes first
-                   document.documentElement.classList.remove('light', 'dark');
-                   
-                   // Add the resolved theme class
-                   document.documentElement.classList.add(resolvedTheme);
-                 } catch (e) {
-                   // Fallback to light mode
-                   document.documentElement.classList.remove('light', 'dark');
-                   document.documentElement.classList.add('light');
-                 }
-               })();
-             `,
-           }}
-         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  
+                  // If no theme is saved, default to light
+                  if (!theme) {
+                    theme = 'light';
+                  }
+                  
+                  var resolvedTheme = theme === 'system' ? systemTheme : theme;
+                  
+                  // Always remove both classes first
+                  document.documentElement.classList.remove('light', 'dark');
+                  
+                  // Only add dark class if explicitly dark
+                  if (resolvedTheme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.add('light');
+                  }
+                } catch (e) {
+                  // Fallback to light mode if any error
+                  document.documentElement.classList.remove('light', 'dark');
+                  document.documentElement.classList.add('light');
+                }
+              })();
+            `,
+          }}
+        />
       </head>
       <body
         className={`${playfairDisplay.variable} ${lora.variable} ${inter.variable} antialiased`}

@@ -19,22 +19,21 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // Mark as mounted to prevent hydration mismatch
     setMounted(true);
     
     // Load theme from localStorage
     const savedTheme = localStorage.getItem('theme') as Theme;
-    if (savedTheme && ['light', 'dark', 'system'].includes(savedTheme)) {
+    if (savedTheme) {
       setTheme(savedTheme);
     } else {
-      // Default to light mode
+      // If no saved theme, default to light
       setTheme('light');
       localStorage.setItem('theme', 'light');
     }
   }, []);
 
   useEffect(() => {
-    if (!mounted) return;
-
     // Save theme to localStorage
     localStorage.setItem('theme', theme);
     
@@ -54,18 +53,22 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     root.classList.remove('light', 'dark');
     root.classList.add(newResolvedTheme);
     
+    // Force reflow to ensure CSS is applied
+    root.offsetHeight;
+    
+    // Debug logging
+    console.log('Theme changed:', { theme, resolvedTheme: newResolvedTheme, mounted });
+    console.log('HTML classes:', root.className);
+    console.log('Body background:', getComputedStyle(document.body).backgroundColor);
+    
     // Update meta theme-color
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
       metaThemeColor.setAttribute('content', newResolvedTheme === 'dark' ? '#1a1a2e' : '#ffffff');
     }
-
-    console.log('Theme applied:', { theme, resolvedTheme: newResolvedTheme, mounted });
-  }, [theme, mounted]);
+  }, [theme]);
 
   useEffect(() => {
-    if (!mounted) return;
-    
     // Listen for system theme changes
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     
@@ -82,7 +85,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
-  }, [theme, mounted]);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, resolvedTheme, mounted }}>
@@ -97,4 +100,4 @@ export function useTheme() {
     throw new Error('useTheme must be used within a ThemeProvider');
   }
   return context;
-}
+} 

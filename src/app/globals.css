@@ -1,268 +1,67 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* ========================================
-   FONT DEFINITIONS & VARIABLES
-======================================== */
-:root {
-  --font-sans: 'Inter', sans-serif;
-  --font-serif-primary: 'Playfair Display', serif;
-  --font-serif-secondary: 'Lora', serif;
-
-  --font-size-base: 16px;
-  --reading-font-size: 1.125rem; /* 18px */
-  --line-height-normal: 1.6;
-  --reading-line-height: 1.8;
-  --line-height-tight: 1.3;
-  --reading-max-width: 75ch;
-}
-
-/* ========================================
-   THEME SYSTEM - SINGLE SOURCE OF TRUTH
-======================================== */
-
-/* DEFAULT LIGHT THEME */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --card: #ffffff;
-  --card-foreground: #171717;
-  --border: #e2e8f0;
-  --primary: #2563eb;
-  --primary-foreground: #ffffff;
+  
+  /* Typography System */
+  --font-serif-primary: var(--font-playfair), 'Baskerville', 'Times New Roman', serif;
+  --font-serif-fallback: var(--font-lora), 'Garamond', 'Georgia', serif;
+  --font-sans: var(--font-inter), 'Segoe UI', system-ui, sans-serif;
+  
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 1.75;
+  
+  /* Reading Typography */
+  --reading-font-size: 1.125rem;    /* 18px */
+  --reading-line-height: 1.75;      /* Optimal for reading */
+  --reading-max-width: 65ch;        /* Optimal line length */
+}
+
+/* ========== THEME SYSTEM ========== */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
   color-scheme: light;
 }
 
-/* DARK THEME */
 .dark {
   --background: #1a1a2e;
   --foreground: #e8e8e8;
-  --muted: #16213e;
-  --muted-foreground: #9ca3af;
-  --card: #16213e;
-  --card-foreground: #e8e8e8;
-  --border: #374151;
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
   color-scheme: dark;
 }
 
-/* LIGHT THEME EXPLICIT */
-.light {
-  --background: #ffffff;
-  --foreground: #171717;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --card: #ffffff;
-  --card-foreground: #171717;
-  --border: #e2e8f0;
-  --primary: #2563eb;
-  --primary-foreground: #ffffff;
-  color-scheme: light;
-}
-
-/* ========================================
-   BASE STYLES
-======================================== */
-* {
-  border-color: var(--border);
-}
-
 body {
-  background-color: var(--background) !important;
-  color: var(--foreground) !important;
-  font-family: var(--font-sans);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-normal);
+  background: var(--background);
+  color: var(--foreground);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ========================================
-   COMPREHENSIVE LIGHT MODE OVERRIDES
-======================================== */
-.light,
-html:not(.dark) {
-  /* Background Colors */
-  --tw-bg-opacity: 1;
-}
+/* ========== end theme system ========== */
 
-.light body,
-html:not(.dark) body {
-  background-color: #ffffff !important;
-  color: #171717 !important;
-}
+/* ========== BASE STYLES ========== */
+/* Removed all .light overrides - rely on default variables */
 
-.light .bg-white,
-html:not(.dark) .bg-white {
-  background-color: #ffffff !important;
-}
+/* Removed Tailwind manual overrides for light mode */
 
-.light .bg-gray-50,
-html:not(.dark) .bg-gray-50 {
-  background-color: #f9fafb !important;
-}
+/* Removed manual dark mode overrides - rely on variables */
 
-.light .bg-gray-100,
-html:not(.dark) .bg-gray-100 {
-  background-color: #f3f4f6 !important;
-}
+/* ========== end theme overrides ========== */
 
-.light .bg-gray-800,
-html:not(.dark) .bg-gray-800 {
-  background-color: #ffffff !important;
-}
-
-.light .bg-gray-900,
-html:not(.dark) .bg-gray-900 {
-  background-color: #f9fafb !important;
-}
-
-/* Text Colors */
-.light .text-white,
-html:not(.dark) .text-white {
-  color: #171717 !important;
-}
-
-.light .text-gray-900,
-html:not(.dark) .text-gray-900 {
-  color: #111827 !important;
-}
-
-.light .text-gray-800,
-html:not(.dark) .text-gray-800 {
-  color: #1f2937 !important;
-}
-
-.light .text-gray-700,
-html:not(.dark) .text-gray-700 {
-  color: #374151 !important;
-}
-
-.light .text-gray-600,
-html:not(.dark) .text-gray-600 {
-  color: #4b5563 !important;
-}
-
-.light .text-gray-500,
-html:not(.dark) .text-gray-500 {
-  color: #6b7280 !important;
-}
-
-.light .text-gray-400,
-html:not(.dark) .text-gray-400 {
-  color: #9ca3af !important;
-}
-
-.light .text-gray-300,
-html:not(.dark) .text-gray-300 {
-  color: #d1d5db !important;
-}
-
-/* Border Colors */
-.light .border-gray-200,
-html:not(.dark) .border-gray-200 {
-  border-color: #e5e7eb !important;
-}
-
-.light .border-gray-300,
-html:not(.dark) .border-gray-300 {
-  border-color: #d1d5db !important;
-}
-
-.light .border-gray-600,
-html:not(.dark) .border-gray-600 {
-  border-color: #4b5563 !important;
-}
-
-.light .border-gray-700,
-html:not(.dark) .border-gray-700 {
-  border-color: #374151 !important;
-}
-
-/* ========================================
-   COMPREHENSIVE DARK MODE OVERRIDES
-======================================== */
-.dark body {
-  background-color: #1a1a2e !important;
-  color: #e8e8e8 !important;
-}
-
-.dark .bg-white {
-  background-color: #16213e !important;
-}
-
-.dark .bg-gray-50 {
-  background-color: #1a1a2e !important;
-}
-
-.dark .bg-gray-100 {
-  background-color: #16213e !important;
-}
-
-.dark .bg-gray-800 {
-  background-color: #16213e !important;
-}
-
-.dark .bg-gray-900 {
-  background-color: #0f0f1e !important;
-}
-
-/* Dark Text Colors */
-.dark .text-white {
-  color: #ffffff !important;
-}
-
-.dark .text-gray-900 {
-  color: #ffffff !important;
-}
-
-.dark .text-gray-800 {
-  color: #f3f4f6 !important;
-}
-
-.dark .text-gray-700 {
-  color: #d1d5db !important;
-}
-
-.dark .text-gray-600 {
-  color: #9ca3af !important;
-}
-
-.dark .text-gray-500 {
-  color: #6b7280 !important;
-}
-
-.dark .text-gray-400 {
-  color: #9ca3af !important;
-}
-
-.dark .text-gray-300 {
-  color: #d1d5db !important;
-}
-
-/* Dark Border Colors */
-.dark .border-gray-200 {
-  border-color: #374151 !important;
-}
-
-.dark .border-gray-300 {
-  border-color: #4b5563 !important;
-}
-
-.dark .border-gray-600 {
-  border-color: #4b5563 !important;
-}
-
-.dark .border-gray-700 {
-  border-color: #374151 !important;
-}
-
-/* ========================================
-   NOVEL CONTENT STYLING
-======================================== */
+/* Novel Content Typography */
 .novel-content {
   font-family: var(--font-serif-primary);
   font-size: var(--reading-font-size);
@@ -272,7 +71,8 @@ html:not(.dark) .border-gray-700 {
   color: var(--foreground);
 }
 
-/* Light Mode Novel Content */
+/* ========== NOVEL CONTENT COLORS ========== */
+/* Light mode novel content */
 .light .novel-content,
 html:not(.dark) .novel-content {
   color: #171717 !important;
@@ -298,7 +98,7 @@ html:not(.dark) .novel-content h6 {
   color: #111827 !important;
 }
 
-/* Dark Mode Novel Content */
+/* Dark mode novel content */
 .dark .novel-content {
   color: #e8e8e8 !important;
 }
@@ -316,9 +116,12 @@ html:not(.dark) .novel-content h6 {
   color: #ffffff !important;
 }
 
-/* ========================================
-   TYPOGRAPHY
-======================================== */
+/* Ensure buttons use sans-serif font */
+button, .btn, [class*="bg-blue-600"], [class*="bg-blue-700"] {
+  font-family: var(--font-sans) !important;
+}
+
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif-primary);
   font-weight: 600;
@@ -362,27 +165,16 @@ a:hover {
   color: #1d4ed8;
 }
 
-/* Dark mode links */
-.dark a {
-  color: #60a5fa;
-}
-
-.dark a:hover {
-  color: #93c5fd;
-}
-
-/* ========================================
-   BUTTON STYLES
-======================================== */
+/* Button Styles */
 .btn-primary {
   background-color: #2563eb;
   color: white !important;
   font-weight: 500 !important;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.5rem; /* Increased padding for touch targets */
   border-radius: 0.375rem;
   transition: all 0.2s;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  min-height: 44px;
+  min-height: 44px; /* Minimum touch target size */
   min-width: 44px;
 }
 
@@ -391,17 +183,9 @@ a:hover {
   color: white !important;
 }
 
-/* Ensure buttons use sans-serif font */
-button, .btn, [class*="bg-blue-600"], [class*="bg-blue-700"] {
-  font-family: var(--font-sans) !important;
-}
-
-/* ========================================
-   TOUCH TARGET ACCESSIBILITY
-======================================== */
 /* Touch target improvements - exclude navigation buttons */
-button:not(.btn-nav-disabled):not([class*="w-10"]),
-a[role="button"]:not(.btn-nav-disabled):not([class*="w-10"]),
+button:not(.btn-nav-disabled):not([class*="w-10"]), 
+a[role="button"]:not(.btn-nav-disabled):not([class*="w-10"]), 
 .btn:not(.btn-nav-disabled):not([class*="w-10"]) {
   min-height: 44px;
   min-width: 44px;
@@ -410,8 +194,8 @@ a[role="button"]:not(.btn-nav-disabled):not([class*="w-10"]),
 
 /* Mobile touch targets - exclude navigation buttons */
 @media (max-width: 768px) {
-  button:not(.btn-nav-disabled):not([class*="w-10"]),
-  a[role="button"]:not(.btn-nav-disabled):not([class*="w-10"]),
+  button:not(.btn-nav-disabled):not([class*="w-10"]), 
+  a[role="button"]:not(.btn-nav-disabled):not([class*="w-10"]), 
   .btn:not(.btn-nav-disabled):not([class*="w-10"]) {
     min-height: 48px;
     min-width: 48px;
@@ -427,3 +211,5 @@ a[class*="w-10"],
   min-height: auto !important;
   min-width: auto !important;
 }
+
+/* Remove conflicting button styles - using inline styles instead */
