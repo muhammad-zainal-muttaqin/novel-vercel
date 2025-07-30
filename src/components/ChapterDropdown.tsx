@@ -19,6 +19,7 @@ export default function ChapterDropdown({ chapters, currentChapter, novelSlug }:
   const [isOpen, setIsOpen] = useState(false);
   const [selectedChapter, setSelectedChapter] = useState(currentChapter);
   const [searchTerm, setSearchTerm] = useState('');
+  const [dropdownPosition, setDropdownPosition] = useState<'bottom' | 'top'>('bottom');
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -45,6 +46,23 @@ export default function ChapterDropdown({ chapters, currentChapter, novelSlug }:
     setSearchTerm(''); // Reset search saat chapter dipilih
   };
 
+  const handleToggleDropdown = () => {
+    if (!isOpen && dropdownRef.current) {
+      // Check if dropdown would overflow viewport
+      const rect = dropdownRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const dropdownHeight = 256; // max-h-64 = 256px
+      
+      // If dropdown would go below viewport, show it above
+      if (rect.bottom + dropdownHeight > viewportHeight - 20) {
+        setDropdownPosition('top');
+      } else {
+        setDropdownPosition('bottom');
+      }
+    }
+    setIsOpen(!isOpen);
+  };
+
   // Filter chapters berdasarkan search term
   const filteredChapters = searchTerm 
     ? chapters.filter(ch => 
@@ -56,7 +74,7 @@ export default function ChapterDropdown({ chapters, currentChapter, novelSlug }:
   return (
     <div className="relative" ref={dropdownRef}>
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggleDropdown}
         className="flex items-center justify-between w-full bg-white border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:bg-gray-50 transition-colors"
       >
         <span className="truncate">
@@ -73,7 +91,14 @@ export default function ChapterDropdown({ chapters, currentChapter, novelSlug }:
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-50 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+        <div className={`absolute left-0 right-0 bg-white border border-gray-300 rounded-md shadow-lg z-20 max-h-64 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 w-full sm:max-w-sm ${
+          dropdownPosition === 'top' 
+            ? 'bottom-full mb-1' 
+            : 'top-full mt-1'
+        }`}
+        style={{
+          maxHeight: typeof window !== 'undefined' ? `${Math.min(256, window.innerHeight * 0.4)}px` : '256px'
+        }}>
           {/* Search box untuk banyak chapter */}
           {chapters.length > 20 && (
             <div className="sticky top-0 bg-white border-b border-gray-200 p-2">
