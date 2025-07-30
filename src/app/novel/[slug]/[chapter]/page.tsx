@@ -5,7 +5,6 @@ import { analytics } from '@/utils/analytics';
 import Button from '@/components/Button';
 import ChapterDropdown from '@/components/ChapterDropdown';
 import CompactNavigation from '@/components/CompactNavigation';
-import QuickChapterList from '@/components/QuickChapterList';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -96,7 +95,7 @@ export default async function ChapterPage({ params }: PageProps) {
     <div className="min-h-screen bg-gray-50">
       {/* Header dengan Navigasi Compact */}
       <header className="bg-white shadow-sm sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-4">
               <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
@@ -116,72 +115,45 @@ export default async function ChapterPage({ params }: PageProps) {
                 Chapter {currentChapter.number} dari {novel.metadata.totalChapters}
               </div>
               
-              {/* Mobile Navigation */}
-              <div className="flex items-center space-x-2 sm:hidden">
-                <CompactNavigation 
-                  prevChapter={prevChapter || undefined}
-                  nextChapter={nextChapter || undefined}
-                  novelSlug={slug}
-                />
-              </div>
+              {/* Navigation Buttons di Header */}
+              <CompactNavigation 
+                prevChapter={prevChapter || undefined}
+                nextChapter={nextChapter || undefined}
+                novelSlug={slug}
+              />
             </div>
           </div>
         </div>
       </header>
 
-      {/* Main Content dengan Layout Grid */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Sidebar untuk Navigasi */}
-          <div className="lg:col-span-1 order-2 lg:order-1">
-            <div className="bg-white rounded-lg shadow-sm p-4 lg:sticky lg:top-24">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Navigasi</h3>
-              
-              {/* Compact Navigation Buttons */}
-              <CompactNavigation 
-                prevChapter={prevChapter || undefined}
-                nextChapter={nextChapter || undefined}
-                novelSlug={slug}
-              />
-              
-              {/* Quick Chapter List */}
-              <QuickChapterList 
-                chapters={novel.metadata.chapters}
-                currentChapter={chapter}
-                novelSlug={slug}
-                maxDisplay={8}
-              />
+      {/* Main Content */}
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Chapter Content */}
+        <article className="bg-white rounded-lg shadow-sm p-8 mb-6">
+          <header className="mb-8">
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              Chapter {currentChapter.number}: {currentChapter.title}
+            </h1>
+            <div className="flex items-center justify-between text-sm text-gray-500">
+              <span>📝 {currentChapter.wordCount} kata</span>
+              <span>📅 {new Date(currentChapter.publishedAt).toLocaleDateString('id-ID')}</span>
             </div>
+          </header>
+
+          {/* MDX Content */}
+          <div className="novel-content text-gray-700">
+            <MDXRenderer content={chapterContent} />
           </div>
+        </article>
 
-          {/* Main Content Area */}
-          <div className="lg:col-span-3 order-1 lg:order-2">
-            {/* Chapter Content */}
-            <article className="bg-white rounded-lg shadow-sm p-8 mb-6">
-              <header className="mb-8">
-                <h1 className="text-3xl font-bold text-gray-900 mb-4">
-                  Chapter {currentChapter.number}: {currentChapter.title}
-                </h1>
-                <div className="flex items-center justify-between text-sm text-gray-500">
-                  <span>📝 {currentChapter.wordCount} kata</span>
-                  <span>📅 {new Date(currentChapter.publishedAt).toLocaleDateString('id-ID')}</span>
-                </div>
-              </header>
-
-              {/* MDX Content */}
-              <div className="novel-content text-gray-700">
-                <MDXRenderer content={chapterContent} />
-              </div>
-            </article>
-
-            {/* Bottom Navigation */}
-            <div className="bg-white rounded-lg shadow-sm p-4">
-              <CompactNavigation 
-                prevChapter={prevChapter || undefined}
-                nextChapter={nextChapter || undefined}
-                novelSlug={slug}
-              />
-            </div>
+        {/* Bottom Navigation */}
+        <div className="bg-white rounded-lg shadow-sm p-4">
+          <div className="flex justify-end">
+            <CompactNavigation 
+              prevChapter={prevChapter || undefined}
+              nextChapter={nextChapter || undefined}
+              novelSlug={slug}
+            />
           </div>
         </div>
 
