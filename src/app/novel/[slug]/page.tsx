@@ -64,7 +64,7 @@ export default async function NovelDetailPage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div>
-              <Button href="/" variant="primary" className="text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
+              <Button href="/" variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
                 ← Kembali ke Beranda
               </Button>
             </div>
@@ -124,11 +124,11 @@ export default async function NovelDetailPage({ params }: PageProps) {
           <div className="divide-y divide-gray-200">
             {novel.metadata.chapters.map((chapter) => (
               <div key={chapter.slug} className="p-6 hover:bg-gray-50 transition-colors">
-                <Button 
-                  href={`/novel/${novel.slug}/${chapter.slug}`}
-                  variant="primary"
-                  className="block bg-transparent shadow-none text-left hover:bg-transparent"
-                >
+                                 <Button 
+                   href={`/novel/${novel.slug}/${chapter.slug}`}
+                   variant="primary"
+                   className="block w-full bg-transparent shadow-none text-left hover:bg-transparent"
+                 >
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors">

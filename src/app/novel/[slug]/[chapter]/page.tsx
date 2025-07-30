@@ -96,7 +96,7 @@ export default async function ChapterPage({ params }: PageProps) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div>
-              <Button href={`/novel/${slug}`} variant="primary" className="text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
+              <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
                 ← {novel.metadata.title}
               </Button>
             </div>
@@ -131,11 +131,11 @@ export default async function ChapterPage({ params }: PageProps) {
         <div className="bg-white rounded-lg shadow-sm p-6">
           <div className="flex justify-between items-center">
             {prevChapter ? (
-              <Button 
-                href={`/novel/${slug}/${prevChapter.slug}`}
-                variant="primary"
-                className="flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none"
-              >
+                             <Button 
+                 href={`/novel/${slug}/${prevChapter.slug}`}
+                 variant="primary"
+                 className="inline-block flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none"
+               >
                 <span className="mr-2">←</span>
                 <div>
                   <div className="text-sm text-gray-500">Chapter Sebelumnya</div>
@@ -147,11 +147,11 @@ export default async function ChapterPage({ params }: PageProps) {
             )}
             
             {nextChapter ? (
-              <Button 
-                href={`/novel/${slug}/${nextChapter.slug}`}
-                variant="primary"
-                className="flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none"
-              >
+                             <Button 
+                 href={`/novel/${slug}/${nextChapter.slug}`}
+                 variant="primary"
+                 className="inline-block flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none"
+               >
                 <div className="text-right">
                   <div className="text-sm text-gray-500">Chapter Selanjutnya</div>
                   <div className="font-medium">Chapter {nextChapter.number}: {nextChapter.title}</div>

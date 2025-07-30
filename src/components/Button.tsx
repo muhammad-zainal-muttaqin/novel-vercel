@@ -106,7 +106,11 @@ const Button: React.FC<ButtonProps> = ({
     // Jika ada className yang override background, gunakan itu
     ...(className.includes('bg-transparent') && { backgroundColor: 'transparent' }),
     ...(className.includes('text-blue-600') && { color: '#2563eb' }),
-    ...(className.includes('shadow-none') && { boxShadow: 'none' })
+    ...(className.includes('shadow-none') && { boxShadow: 'none' }),
+    // Jika ada className yang override display, gunakan itu
+    ...(className.includes('block') && { display: 'block' }),
+    ...(className.includes('inline') && { display: 'inline' }),
+    ...(className.includes('inline-block') && { display: 'inline-block' })
   };
 
   const buttonClasses = `
