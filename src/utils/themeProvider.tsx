@@ -27,8 +27,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (savedTheme) {
       setTheme(savedTheme);
     } else {
-      // If no saved theme, check system preference
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      // If no saved theme, default to system
       setTheme('system');
     }
   }, []);
@@ -52,6 +51,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const root = document.documentElement;
     root.classList.remove('light', 'dark');
     root.classList.add(newResolvedTheme);
+    
+    // Debug logging
+    console.log('Theme changed:', { theme, resolvedTheme: newResolvedTheme, mounted });
     
     // Update meta theme-color
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');

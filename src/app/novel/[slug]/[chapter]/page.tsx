@@ -104,7 +104,7 @@ export default async function ChapterPage({ params }: PageProps) {
             <div className="py-3">
             {/* Back button */}
             <div className="mb-3">
-              <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none text-sm font-medium">
+              <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors bg-transparent shadow-none text-sm font-medium">
                 ← {novel.metadata.title}
               </Button>
               <span className="ml-3 text-xs text-gray-500 dark:text-gray-400">
@@ -175,7 +175,7 @@ export default async function ChapterPage({ params }: PageProps) {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-4 min-h-[80px]">
               <div className="flex items-center space-x-4">
-                <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
+                <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors bg-transparent shadow-none">
                   ← {novel.metadata.title}
                 </Button>
                 

@@ -99,13 +99,14 @@ export default function RootLayout({
                 try {
                   var theme = localStorage.getItem('theme');
                   var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  var resolvedTheme = theme === 'system' ? systemTheme : (theme || 'light');
+                  var resolvedTheme = theme === 'system' ? systemTheme : (theme || 'system');
                   document.documentElement.classList.remove('light', 'dark');
                   document.documentElement.classList.add(resolvedTheme);
                 } catch (e) {
-                  // Fallback to light theme if localStorage is not available
+                  // Fallback to system preference if localStorage is not available
+                  var fallbackTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                   document.documentElement.classList.remove('light', 'dark');
-                  document.documentElement.classList.add('light');
+                  document.documentElement.classList.add(fallbackTheme);
                 }
               })();
             `,

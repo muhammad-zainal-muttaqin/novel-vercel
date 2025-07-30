@@ -64,9 +64,9 @@ export default async function NovelDetailPage({ params }: PageProps) {
          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="flex justify-between items-center py-6 min-h-[80px]">
              <div>
-               <Button href="/" variant="primary" className="inline text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
-                 ← Kembali ke Beranda
-               </Button>
+                               <Button href="/" variant="primary" className="inline text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors bg-transparent shadow-none">
+                  ← Kembali ke Beranda
+                </Button>
              </div>
            </div>
          </div>
@@ -100,10 +100,10 @@ export default async function NovelDetailPage({ params }: PageProps) {
 
           <div className="flex flex-wrap gap-2 mb-6">
             {novel.metadata.tags.map((tag) => (
-              <span 
-                key={tag}
-                className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
-              >
+                             <span 
+                 key={tag}
+                 className="px-3 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-300 text-sm rounded-full"
+               >
                 {tag}
               </span>
             ))}
@@ -138,9 +138,9 @@ export default async function NovelDetailPage({ params }: PageProps) {
                         {chapter.wordCount} kata • {new Date(chapter.publishedAt).toLocaleDateString('id-ID')}
                       </p>
                     </div>
-                    <div className="text-blue-600">
-                      →
-                    </div>
+                                         <div className="text-blue-600 dark:text-blue-400">
+                       →
+                     </div>
                   </div>
                 </Button>
               </div>
