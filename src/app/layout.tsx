@@ -99,14 +99,27 @@ export default function RootLayout({
                 try {
                   var theme = localStorage.getItem('theme');
                   var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  var resolvedTheme = theme === 'system' ? systemTheme : (theme || 'system');
+                  
+                  // If no theme is saved, default to light
+                  if (!theme) {
+                    theme = 'light';
+                  }
+                  
+                  var resolvedTheme = theme === 'system' ? systemTheme : theme;
+                  
+                  // Always remove both classes first
                   document.documentElement.classList.remove('light', 'dark');
-                  document.documentElement.classList.add(resolvedTheme);
+                  
+                  // Only add dark class if explicitly dark
+                  if (resolvedTheme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.add('light');
+                  }
                 } catch (e) {
-                  // Fallback to system preference if localStorage is not available
-                  var fallbackTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  // Fallback to light mode if any error
                   document.documentElement.classList.remove('light', 'dark');
-                  document.documentElement.classList.add(fallbackTheme);
+                  document.documentElement.classList.add('light');
                 }
               })();
             `,
