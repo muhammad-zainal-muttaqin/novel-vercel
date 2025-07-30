@@ -108,7 +108,16 @@ a:hover {
 }
 
 /* Ensure button text is always visible */
-button, .btn, [class*="bg-blue-600"] {
+button, .btn, [class*="bg-blue-600"], [class*="bg-red-600"] {
   color: white !important;
   font-weight: 500 !important;
+  font-family: var(--font-sans) !important;
+}
+
+/* Specific button overrides */
+button[class*="bg-blue-600"], 
+button[class*="bg-red-600"] {
+  color: white !important;
+  font-weight: 500 !important;
+  font-family: var(--font-sans) !important;
 }
