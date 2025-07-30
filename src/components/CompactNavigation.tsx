@@ -20,7 +20,7 @@ export default function CompactNavigation({ prevChapter, nextChapter, novelSlug 
       {prevChapter ? (
         <Link
           href={`/novel/${novelSlug}/${prevChapter.slug}`}
-          className="flex items-center px-3 py-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-300 rounded-md transition-colors"
+          className="flex items-center px-3 py-2 text-sm bg-white hover:bg-gray-50 text-gray-900 border border-gray-300 rounded-md transition-colors font-medium"
         >
           <span className="mr-1">←</span>
           <span>Prev</span>
@@ -28,7 +28,7 @@ export default function CompactNavigation({ prevChapter, nextChapter, novelSlug 
       ) : (
         <button 
           disabled
-          className="flex items-center px-3 py-2 text-sm bg-gray-50 text-gray-400 border border-gray-200 rounded-md cursor-not-allowed"
+          className="flex items-center px-3 py-2 text-sm bg-gray-100 text-gray-600 border border-gray-300 rounded-md cursor-not-allowed font-medium"
         >
           <span className="mr-1">←</span>
           <span>Prev</span>
@@ -38,7 +38,7 @@ export default function CompactNavigation({ prevChapter, nextChapter, novelSlug 
       {nextChapter ? (
         <Link
           href={`/novel/${novelSlug}/${nextChapter.slug}`}
-          className="flex items-center px-3 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors"
+          className="flex items-center px-3 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors font-medium"
         >
           <span>Next</span>
           <span className="ml-1">→</span>
@@ -46,7 +46,7 @@ export default function CompactNavigation({ prevChapter, nextChapter, novelSlug 
       ) : (
         <button 
           disabled
-          className="flex items-center px-3 py-2 text-sm bg-gray-50 text-gray-400 border border-gray-200 rounded-md cursor-not-allowed"
+          className="flex items-center px-3 py-2 text-sm bg-gray-100 text-gray-600 border border-gray-300 rounded-md cursor-not-allowed font-medium"
         >
           <span>Next</span>
           <span className="ml-1">→</span>

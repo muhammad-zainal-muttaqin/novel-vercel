@@ -47,13 +47,13 @@ export default function ChapterDropdown({ chapters, currentChapter, novelSlug }:
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full bg-gray-100 border border-gray-300 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:bg-gray-200 transition-colors"
+        className="flex items-center justify-between w-full bg-white border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:bg-gray-50 transition-colors"
       >
         <span className="truncate">
           {currentChapterData ? `Chapter ${currentChapterData.number}: ${currentChapterData.title}` : 'Pilih Chapter'}
         </span>
         <svg 
-          className={`h-4 w-4 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} 
+          className={`h-4 w-4 text-gray-600 transition-transform ${isOpen ? 'rotate-180' : ''}`} 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
