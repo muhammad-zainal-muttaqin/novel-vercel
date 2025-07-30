@@ -193,7 +193,7 @@ export default async function ChapterPage({ params }: PageProps) {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-24 lg:pb-8">
         {/* Chapter Content */}
         <article className="bg-white rounded-lg shadow-sm p-8 mb-6">
           <header className="mb-8">
@@ -212,11 +212,11 @@ export default async function ChapterPage({ params }: PageProps) {
           </div>
         </article>
 
-        {/* Bottom Navigation */}
-        <div className="bg-white rounded-lg shadow-sm p-4">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0">
+        {/* Bottom Navigation - Only visible on desktop */}
+        <div className="hidden lg:block bg-white rounded-lg shadow-sm p-4">
+          <div className="flex justify-between items-center">
             {/* Chapter Dropdown di Footer */}
-            <div className="w-full sm:w-auto">
+            <div className="w-auto">
               <ChapterDropdown 
                 chapters={novel.metadata.chapters}
                 currentChapter={chapter}
