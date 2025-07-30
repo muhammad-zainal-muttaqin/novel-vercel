@@ -91,13 +91,13 @@ export default function ChapterDropdown({ chapters, currentChapter, novelSlug }:
       </button>
 
       {isOpen && (
-        <div className={`absolute left-0 right-0 bg-white border border-gray-300 rounded-md shadow-lg z-20 max-h-64 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 w-full sm:max-w-sm ${
+        <div className={`absolute left-0 right-0 bg-white border border-gray-300 rounded-md shadow-lg z-10 max-h-60 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 w-full max-w-sm ${
           dropdownPosition === 'top' 
             ? 'bottom-full mb-1' 
             : 'top-full mt-1'
         }`}
         style={{
-          maxHeight: typeof window !== 'undefined' ? `${Math.min(256, window.innerHeight * 0.4)}px` : '256px'
+          maxHeight: '240px'
         }}>
           {/* Search box untuk banyak chapter */}
           {chapters.length > 20 && (

@@ -95,21 +95,21 @@ export default async function ChapterPage({ params }: PageProps) {
     <div className="min-h-screen bg-gray-50">
       {/* Header dengan Navigasi Compact */}
       <header className="bg-white shadow-sm sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
           {/* Mobile Layout */}
-          <div className="block lg:hidden">
-            {/* First Row: Back button and chapter info */}
-            <div className="flex items-center justify-between py-2 border-b border-gray-100">
+          <div className="block lg:hidden py-3">
+            {/* Back button */}
+            <div className="mb-3">
               <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none text-sm font-medium">
                 ← {novel.metadata.title}
               </Button>
-              <div className="text-xs text-gray-500 font-medium">
+              <span className="ml-3 text-xs text-gray-500">
                 {currentChapter.number}/{novel.metadata.totalChapters}
-              </div>
+              </span>
             </div>
             
-            {/* Second Row: Chapter dropdown */}
-            <div className="py-2 border-b border-gray-100">
+            {/* Chapter dropdown - full width */}
+            <div className="mb-3">
               <ChapterDropdown 
                 chapters={novel.metadata.chapters}
                 currentChapter={chapter}
@@ -117,13 +117,49 @@ export default async function ChapterPage({ params }: PageProps) {
               />
             </div>
             
-            {/* Third Row: Navigation buttons */}
-            <div className="py-2 flex justify-center">
-              <CompactNavigation 
-                prevChapter={prevChapter || undefined}
-                nextChapter={nextChapter || undefined}
-                novelSlug={slug}
-              />
+            {/* Navigation buttons - centered */}
+            <div className="flex justify-center">
+              <div className="flex gap-3">
+                {prevChapter ? (
+                  <Button
+                    href={`/novel/${slug}/${prevChapter.slug}`}
+                    variant="secondary"
+                    size="sm"
+                    className="px-4 py-2 text-sm"
+                  >
+                    ← Prev
+                  </Button>
+                ) : (
+                  <Button
+                    disabled={true}
+                    variant="secondary"
+                    size="sm"
+                    className="px-4 py-2 text-sm opacity-50"
+                  >
+                    ← Prev
+                  </Button>
+                )}
+                
+                {nextChapter ? (
+                  <Button
+                    href={`/novel/${slug}/${nextChapter.slug}`}
+                    variant="primary"
+                    size="sm"
+                    className="px-4 py-2 text-sm"
+                  >
+                    Next →
+                  </Button>
+                ) : (
+                  <Button
+                    disabled={true}
+                    variant="primary"
+                    size="sm"
+                    className="px-4 py-2 text-sm opacity-50"
+                  >
+                    Next →
+                  </Button>
+                )}
+              </div>
             </div>
           </div>
 
