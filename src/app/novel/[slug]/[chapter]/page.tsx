@@ -172,7 +172,7 @@ export default async function ChapterPage({ params }: PageProps) {
         {/* Desktop Header - Full width */}
         <div className="hidden lg:block bg-white shadow-sm">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center py-4">
+            <div className="flex justify-between items-center py-4 min-h-[80px]">
               <div className="flex items-center space-x-4">
                 <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
                   ← {novel.metadata.title}
