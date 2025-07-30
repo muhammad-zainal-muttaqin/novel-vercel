@@ -100,9 +100,11 @@ export default function RootLayout({
                   var theme = localStorage.getItem('theme');
                   var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                   var resolvedTheme = theme === 'system' ? systemTheme : (theme || 'light');
+                  document.documentElement.classList.remove('light', 'dark');
                   document.documentElement.classList.add(resolvedTheme);
                 } catch (e) {
                   // Fallback to light theme if localStorage is not available
+                  document.documentElement.classList.remove('light', 'dark');
                   document.documentElement.classList.add('light');
                 }
               })();

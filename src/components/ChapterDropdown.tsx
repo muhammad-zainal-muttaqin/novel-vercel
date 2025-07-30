@@ -75,13 +75,13 @@ export default function ChapterDropdown({ chapters, currentChapter, novelSlug }:
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={handleToggleDropdown}
-        className="flex items-center justify-between w-full bg-white border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:bg-gray-50 transition-colors"
+        className="flex items-center justify-between w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-1.5 text-sm text-gray-900 dark:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
       >
         <span className="truncate">
           {currentChapterData ? `Chapter ${currentChapterData.number}: ${currentChapterData.title}` : 'Pilih Chapter'}
         </span>
         <svg 
-          className={`h-4 w-4 text-gray-600 transition-transform ${isOpen ? 'rotate-180' : ''}`} 
+          className={`h-4 w-4 text-gray-600 dark:text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
@@ -91,7 +91,7 @@ export default function ChapterDropdown({ chapters, currentChapter, novelSlug }:
       </button>
 
       {isOpen && (
-        <div className={`absolute left-0 right-0 bg-white border border-gray-300 rounded-md shadow-lg z-10 max-h-60 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 w-full max-w-sm ${
+        <div className={`absolute left-0 right-0 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md shadow-lg z-10 max-h-60 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-gray-100 dark:scrollbar-track-gray-800 w-full max-w-sm ${
           dropdownPosition === 'top' 
             ? 'bottom-full mb-1' 
             : 'top-full mt-1'
@@ -101,11 +101,11 @@ export default function ChapterDropdown({ chapters, currentChapter, novelSlug }:
         }}>
           {/* Search box untuk banyak chapter */}
           {chapters.length > 20 && (
-            <div className="sticky top-0 bg-white border-b border-gray-200 p-2">
+            <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-2">
               <input
                 type="text"
                 placeholder="Cari chapter..."
-                className="w-full px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -116,27 +116,27 @@ export default function ChapterDropdown({ chapters, currentChapter, novelSlug }:
             <button
               key={chapter.slug}
               onClick={() => handleChapterSelect(chapter.slug)}
-              className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 transition-colors border-b border-gray-50 last:border-b-0 ${
+              className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors border-b border-gray-50 dark:border-gray-700 last:border-b-0 ${
                 chapter.slug === currentChapter 
-                  ? 'bg-blue-100 text-blue-700 font-medium' 
-                  : 'text-gray-700'
+                  ? 'bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 font-medium' 
+                  : 'text-gray-700 dark:text-gray-300'
               }`}
             >
               <div className="font-medium">Chapter {chapter.number}</div>
-              <div className="text-xs text-gray-500 truncate">{chapter.title}</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{chapter.title}</div>
             </button>
           ))}
           
           {/* No results message */}
           {filteredChapters.length === 0 && searchTerm && (
-            <div className="px-3 py-4 text-sm text-gray-500 text-center">
+            <div className="px-3 py-4 text-sm text-gray-500 dark:text-gray-400 text-center">
               Tidak ada chapter yang ditemukan untuk "{searchTerm}"
             </div>
           )}
           
           {/* Scroll indicator untuk banyak chapter */}
           {chapters.length > 10 && !searchTerm && (
-            <div className="sticky bottom-0 bg-gray-50 px-3 py-1 text-xs text-gray-500 text-center border-t border-gray-200">
+            <div className="sticky bottom-0 bg-gray-50 dark:bg-gray-700 px-3 py-1 text-xs text-gray-500 dark:text-gray-400 text-center border-t border-gray-200 dark:border-gray-600">
               {chapters.length} chapters total • Scroll untuk lebih banyak
             </div>
           )}
