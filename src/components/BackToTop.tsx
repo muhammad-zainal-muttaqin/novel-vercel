@@ -4,20 +4,28 @@ import React, { useState, useEffect } from 'react';
 
 const BackToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+    const handleScroll = () => {
+      const currentScrollY = window.pageYOffset;
+      
+      // Show when scrolling down and past 300px
+      if (currentScrollY > 300 && currentScrollY > lastScrollY) {
         setIsVisible(true);
-      } else {
+      }
+      // Hide when scrolling up (even slightly)
+      else if (currentScrollY < lastScrollY) {
         setIsVisible(false);
       }
+      
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', handleScroll);
 
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const scrollToTop = () => {
     window.scrollTo({
