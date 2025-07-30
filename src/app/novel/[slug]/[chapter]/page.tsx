@@ -268,25 +268,20 @@ export default async function ChapterPage({ params }: PageProps) {
             </div>
             
             {/* Navigation Buttons - Fixed width */}
-            <div className="flex gap-2 flex-shrink-0">
+            <div className="flex gap-2 flex-shrink-0 items-center">
               {prevChapter ? (
                 <Button
                   href={`/novel/${slug}/${prevChapter.slug}`}
                   variant="secondary"
                   size="sm"
-                  className="w-10 h-10 p-0 flex items-center justify-center text-sm"
+                  className="w-10 h-10 p-0 flex items-center justify-center text-sm font-medium"
                 >
                   ←
                 </Button>
               ) : (
-                <Button
-                  disabled={true}
-                  variant="secondary"
-                  size="sm"
-                  className="w-10 h-10 p-0 flex items-center justify-center text-sm opacity-50"
-                >
+                <div className="w-10 h-10 flex items-center justify-center text-sm font-medium bg-gray-100 text-gray-400 rounded-md border">
                   ←
-                </Button>
+                </div>
               )}
               
               {nextChapter ? (
@@ -294,19 +289,14 @@ export default async function ChapterPage({ params }: PageProps) {
                   href={`/novel/${slug}/${nextChapter.slug}`}
                   variant="primary"
                   size="sm"
-                  className="w-10 h-10 p-0 flex items-center justify-center text-sm"
+                  className="w-10 h-10 p-0 flex items-center justify-center text-sm font-medium"
                 >
                   →
                 </Button>
               ) : (
-                <Button
-                  disabled={true}
-                  variant="primary"
-                  size="sm"
-                  className="w-10 h-10 p-0 flex items-center justify-center text-sm opacity-50"
-                >
+                <div className="w-10 h-10 flex items-center justify-center text-sm font-medium bg-gray-100 text-gray-400 rounded-md border">
                   →
-                </Button>
+                </div>
               )}
             </div>
           </div>
