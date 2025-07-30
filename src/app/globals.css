@@ -31,34 +31,28 @@
   --reading-max-width: 65ch;        /* Optimal line length */
 }
 
-/* ========== THEME SYSTEM ========= */
-html.light, :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  color-scheme: light;
+/* Theme variables */
+:root {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
 }
 
-html.dark {
-  --background: #1a1a2e;
-  --foreground: #e8e8e8;
-  color-scheme: dark;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
-/* Apply background and text color from CSS variables */
 body {
   background: var(--background);
   color: var(--foreground);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
 }
-
-/* ========== BASE STYLES ========== */
-/* Removed all .light overrides - rely on default variables */
-
-/* Removed Tailwind manual overrides for light mode */
-
-/* Removed manual dark mode overrides - rely on variables */
-
-/* ========== end theme overrides ========== */
 
 /* Novel Content Typography */
 .novel-content {
@@ -67,52 +61,6 @@ body {
   line-height: var(--reading-line-height);
   max-width: var(--reading-max-width);
   margin: 0 auto;
-  color: var(--foreground);
-}
-
-/* ========== NOVEL CONTENT COLORS ========== */
-/* Light mode novel content */
-.light .novel-content,
-html:not(.dark) .novel-content {
-  color: #171717 !important;
-}
-
-.light .novel-content p,
-html:not(.dark) .novel-content p {
-  color: #171717 !important;
-}
-
-.light .novel-content h1,
-.light .novel-content h2,
-.light .novel-content h3,
-.light .novel-content h4,
-.light .novel-content h5,
-.light .novel-content h6,
-html:not(.dark) .novel-content h1,
-html:not(.dark) .novel-content h2,
-html:not(.dark) .novel-content h3,
-html:not(.dark) .novel-content h4,
-html:not(.dark) .novel-content h5,
-html:not(.dark) .novel-content h6 {
-  color: #111827 !important;
-}
-
-/* Dark mode novel content */
-.dark .novel-content {
-  color: #e8e8e8 !important;
-}
-
-.dark .novel-content p {
-  color: #e8e8e8 !important;
-}
-
-.dark .novel-content h1,
-.dark .novel-content h2,
-.dark .novel-content h3,
-.dark .novel-content h4,
-.dark .novel-content h5,
-.dark .novel-content h6 {
-  color: #ffffff !important;
 }
 
 /* Ensure buttons use sans-serif font */

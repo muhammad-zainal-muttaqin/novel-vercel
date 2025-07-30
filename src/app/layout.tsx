@@ -3,7 +3,6 @@ import { Inter, Playfair_Display, Lora } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import '../utils/errorHandler';
-import { ThemeProvider } from '../utils/themeProvider';
 import "./globals.css";
 
 // Primary serif font for novel content (Baskerville alternative)
@@ -92,33 +91,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://vercel.app" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  var resolved = theme === 'system' ? systemTheme : (theme || 'light');
-                  var root = document.documentElement;
-                  root.classList.remove('light', 'dark');
-                  root.classList.add(resolved);
-                } catch (e) {
-                  var root = document.documentElement;
-                  root.classList.remove('light', 'dark');
-                  root.classList.add('light');
-                }
-              })();
-            `,
-          }}
-        />
       </head>
       <body
         className={`${playfairDisplay.variable} ${lora.variable} ${inter.variable} antialiased`}
       >
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        {children}
         <Analytics />
         <SpeedInsights />
       </body>
