@@ -96,6 +96,8 @@ Set environment variables:
 - ✅ **Smart ChapterDropdown**: Search, scroll, viewport detection for 100+ chapters
 - ✅ **CompactNavigation**: Centralized Button component with WCAG contrast
 - ✅ **Mobile-First**: Smart positioning, responsive breakpoints, no overflow
+- ✅ **Mobile UX**: Non-sticky header + floating navigation for better reading
+- ✅ **Consistent Headers**: 80px height across all pages for smooth navigation
 - ✅ **Enterprise-Grade**: Production ready with 100% task completion
 
 ### Content Management
