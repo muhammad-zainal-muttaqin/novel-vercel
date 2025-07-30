@@ -243,7 +243,7 @@ export default async function ChapterPage({ params }: PageProps) {
         </div>
 
         {/* Back to Novel */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-4 mb-4">
           <Button 
             href={`/novel/${slug}`}
             variant="primary"
