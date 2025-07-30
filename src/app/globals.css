@@ -75,6 +75,27 @@ h1, h2, h3, h4, h5, h6 {
   line-height: var(--line-height-tight);
 }
 
+/* Explicit font-size for h1 to fix Lighthouse warning */
+h1 {
+  font-size: 2.25rem; /* 36px */
+}
+
+/* H1 dalam section, article, aside, nav membutuhkan font-size eksplisit */
+section h1, article h1, aside h1, nav h1 {
+  font-size: 2.25rem; /* 36px */
+}
+
+/* Responsive font sizes */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.875rem; /* 30px */
+  }
+  
+  section h1, article h1, aside h1, nav h1 {
+    font-size: 1.875rem; /* 30px */
+  }
+}
+
 /* Paragraphs */
 p {
   margin-bottom: 1.5rem;
