@@ -52,20 +52,20 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              href="#novels" 
+              href="/novel/the-legend-of-aria/chapter-1" 
               variant="primary"
               size="lg"
-              className="px-8 py-3 text-lg"
+              className="px-8 py-3 text-lg font-semibold"
             >
-              🚀 Mulai Membaca
+              🚀 Mulai Baca Gratis
             </Button>
             <Button 
-              href="/novel/the-legend-of-aria" 
+              href="#novels" 
               variant="secondary"
               size="lg"
-              className="px-8 py-3 text-lg"
+              className="px-8 py-3 text-lg font-semibold"
             >
-              ⭐ Novel Populer
+              📚 Lihat Semua Novel
             </Button>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default function Home() {
                 Kami sedang mempersiapkan koleksi novel terbaik untuk Anda. 
                 Silakan kembali lagi nanti!
               </p>
-              <Button variant="secondary" href="/">
+              <Button variant="secondary" href="#" className="font-semibold">
                 🔔 Beritahu Saya
               </Button>
             </div>
@@ -143,9 +143,9 @@ export default function Home() {
                     <Button 
                       href={`/novel/${novel.slug}`}
                       variant="primary"
-                      className="w-full group-hover:scale-105 transition-transform"
+                      className="w-full group-hover:scale-105 transition-transform font-semibold"
                     >
-                      🚀 Mulai Baca
+                      📖 Baca Novel
                     </Button>
                   </div>
                 </div>
@@ -197,30 +197,30 @@ export default function Home() {
         </div>
 
         {/* CTA */}
-        <div className="text-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white">
+        <div className="text-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white shadow-xl">
           <h3 className="text-3xl font-bold mb-4">
             Siap Memulai Petualangan?
           </h3>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
             Bergabunglah dengan ribuan pembaca yang sudah menikmati cerita-cerita menarik di Novel Vercel. 
             Mulai baca sekarang juga!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              href="#novels" 
-              variant="secondary"
+              href="/novel/the-legend-of-aria/chapter-1" 
+              variant="primary"
               size="lg"
-              className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-3 text-lg font-semibold"
+              className="bg-white text-blue-600 hover:bg-blue-50 hover:text-blue-700 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              📚 Jelajahi Novel
+              🚀 Mulai Baca Sekarang
             </Button>
             <Button 
-              href="/novel/the-legend-of-aria/chapter-1" 
+              href="/novel/the-legend-of-aria" 
               variant="secondary"
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 text-lg font-semibold bg-transparent"
+              className="bg-blue-700 text-white hover:bg-blue-800 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              🚀 Baca Sekarang
+              📖 Info Novel
             </Button>
           </div>
         </div>
