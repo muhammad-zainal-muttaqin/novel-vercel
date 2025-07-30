@@ -206,7 +206,7 @@ export default async function ChapterPage({ params }: PageProps) {
         {/* Chapter Content */}
         <article className="bg-white rounded-lg shadow-sm p-8 mb-6">
           <header className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl font-bold text-gray-900 mb-4" style={{ fontSize: '1.875rem' }}>
               Chapter {currentChapter.number}: {currentChapter.title}
             </h1>
             <div className="flex items-center justify-between text-sm text-gray-500">
