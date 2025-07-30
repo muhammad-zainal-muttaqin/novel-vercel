@@ -240,7 +240,7 @@ export default function Home() {
           </div>
           
           <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
-            <p>© 2025 Novel Vercel. Dibuat dengan ❤️ oleh syqrel untuk para pecinta novel.</p>
+            <p>© 2025 Novel Vercel. Dibuat dengan ❤️ oleh Syqrel untuk para pecinta novel.</p>
             <p className="mt-2 text-sm">Gratis • Tanpa Iklan • Pengalaman Membaca Terbaik</p>
           </div>
         </div>
