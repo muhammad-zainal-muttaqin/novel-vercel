@@ -127,19 +127,19 @@ export default async function ChapterPage({ params }: PageProps) {
            </div>
         </article>
 
-        {/* Chapter Navigation */}
+                {/* Chapter Navigation */}
         <div className="bg-white rounded-lg shadow-sm p-6">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             {prevChapter ? (
-                             <Button 
-                 href={`/novel/${slug}/${prevChapter.slug}`}
-                 variant="primary"
-                 className="inline-block flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none"
-               >
+              <Button 
+                href={`/novel/${slug}/${prevChapter.slug}`}
+                variant="primary"
+                className="inline-block flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none w-full sm:w-auto"
+              >
                 <span className="mr-2">←</span>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-sm text-gray-500">Chapter Sebelumnya</div>
-                  <div className="font-medium">Chapter {prevChapter.number}: {prevChapter.title}</div>
+                  <div className="font-medium truncate">Chapter {prevChapter.number}: {prevChapter.title}</div>
                 </div>
               </Button>
             ) : (
@@ -147,14 +147,14 @@ export default async function ChapterPage({ params }: PageProps) {
             )}
             
             {nextChapter ? (
-                             <Button 
-                 href={`/novel/${slug}/${nextChapter.slug}`}
-                 variant="primary"
-                 className="inline-block flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none"
-               >
-                <div className="text-right">
+              <Button 
+                href={`/novel/${slug}/${nextChapter.slug}`}
+                variant="primary"
+                className="inline-block flex items-center text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none w-full sm:w-auto"
+              >
+                <div className="text-right min-w-0 flex-1">
                   <div className="text-sm text-gray-500">Chapter Selanjutnya</div>
-                  <div className="font-medium">Chapter {nextChapter.number}: {nextChapter.title}</div>
+                  <div className="font-medium truncate">Chapter {nextChapter.number}: {nextChapter.title}</div>
                 </div>
                 <span className="ml-2">→</span>
               </Button>
