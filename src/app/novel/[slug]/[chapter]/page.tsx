@@ -173,28 +173,29 @@ export default async function ChapterPage({ params }: PageProps) {
         <div className="hidden lg:block bg-white shadow-sm">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-4">
-              <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
-                ← {novel.metadata.title}
-              </Button>
-              
-              <ChapterDropdown 
-                chapters={novel.metadata.chapters}
-                currentChapter={chapter}
-                novelSlug={slug}
-              />
-            </div>
-            
-            <div className="flex items-center space-x-4">
-              <div className="text-sm text-gray-500 hidden lg:block">
-                Chapter {currentChapter.number} dari {novel.metadata.totalChapters}
+              <div className="flex items-center space-x-4">
+                <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
+                  ← {novel.metadata.title}
+                </Button>
+                
+                <ChapterDropdown 
+                  chapters={novel.metadata.chapters}
+                  currentChapter={chapter}
+                  novelSlug={slug}
+                />
               </div>
               
-              <CompactNavigation 
-                prevChapter={prevChapter || undefined}
-                nextChapter={nextChapter || undefined}
-                novelSlug={slug}
-              />
+              <div className="flex items-center space-x-4">
+                <div className="text-sm text-gray-500 hidden lg:block">
+                  Chapter {currentChapter.number} dari {novel.metadata.totalChapters}
+                </div>
+                
+                <CompactNavigation 
+                  prevChapter={prevChapter || undefined}
+                  nextChapter={nextChapter || undefined}
+                  novelSlug={slug}
+                />
+              </div>
             </div>
           </div>
         </div>
