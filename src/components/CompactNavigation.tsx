@@ -32,7 +32,7 @@ export default function CompactNavigation({ prevChapter, nextChapter, novelSlug 
           disabled={true}
           variant="secondary"
           size="sm"
-          className="flex items-center opacity-50"
+          className="flex items-center opacity-50 btn-nav-disabled"
         >
           <span className="mr-1">←</span>
           <span>Prev</span>
@@ -54,7 +54,7 @@ export default function CompactNavigation({ prevChapter, nextChapter, novelSlug 
           disabled={true}
           variant="primary"
           size="sm"
-          className="flex items-center opacity-50"
+          className="flex items-center opacity-50 btn-nav-disabled"
         >
           <span>Next</span>
           <span className="ml-1">→</span>

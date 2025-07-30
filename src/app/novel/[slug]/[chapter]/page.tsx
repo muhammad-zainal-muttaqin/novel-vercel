@@ -137,7 +137,7 @@ export default async function ChapterPage({ params }: PageProps) {
                     disabled={true}
                     variant="secondary"
                     size="sm"
-                    className="px-4 py-2 text-sm opacity-50"
+                    className="px-4 py-2 text-sm opacity-50 btn-nav-disabled"
                   >
                     ← Prev
                   </Button>
@@ -157,7 +157,7 @@ export default async function ChapterPage({ params }: PageProps) {
                     disabled={true}
                     variant="primary"
                     size="sm"
-                    className="px-4 py-2 text-sm opacity-50"
+                    className="px-4 py-2 text-sm opacity-50 btn-nav-disabled"
                   >
                     Next →
                   </Button>
@@ -279,7 +279,7 @@ export default async function ChapterPage({ params }: PageProps) {
                   ←
                 </Button>
               ) : (
-                <div className="w-10 h-10 flex items-center justify-center text-sm font-medium bg-gray-100 text-gray-400 rounded-md border">
+                <div className="w-10 h-10 flex items-center justify-center text-sm font-medium bg-gray-100 text-gray-400 rounded-md border btn-nav-disabled">
                   ←
                 </div>
               )}
@@ -294,7 +294,7 @@ export default async function ChapterPage({ params }: PageProps) {
                   →
                 </Button>
               ) : (
-                <div className="w-10 h-10 flex items-center justify-center text-sm font-medium bg-gray-100 text-gray-400 rounded-md border">
+                <div className="w-10 h-10 flex items-center justify-center text-sm font-medium bg-gray-100 text-gray-400 rounded-md border btn-nav-disabled">
                   →
                 </div>
               )}
