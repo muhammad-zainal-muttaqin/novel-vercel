@@ -95,10 +95,12 @@ export default async function ChapterPage({ params }: PageProps) {
     <div className="min-h-screen bg-gray-50">
       {/* Header dengan Navigasi Compact */}
       <header className="lg:sticky lg:top-0 z-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white shadow-sm rounded-lg lg:rounded-none px-3 sm:px-6 lg:px-8">
+        {/* Mobile Header - Aligned with content */}
+        <div className="lg:hidden">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+            <div className="bg-white shadow-sm rounded-lg px-3 sm:px-6">
             {/* Mobile Layout */}
-            <div className="block lg:hidden py-3">
+            <div className="py-3">
             {/* Back button */}
             <div className="mb-3">
               <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none text-sm font-medium">
@@ -162,10 +164,15 @@ export default async function ChapterPage({ params }: PageProps) {
                 )}
               </div>
             </div>
+                      </div>
+            </div>
           </div>
+        </div>
 
-          {/* Desktop Layout */}
-          <div className="hidden lg:flex justify-between items-center py-4">
+        {/* Desktop Header - Full width */}
+        <div className="hidden lg:block bg-white shadow-sm">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-4">
               <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
                 ← {novel.metadata.title}
@@ -190,7 +197,6 @@ export default async function ChapterPage({ params }: PageProps) {
               />
             </div>
           </div>
-        </div>
         </div>
       </header>
 
