@@ -97,26 +97,28 @@ export default async function ChapterPage({ params }: PageProps) {
       <header className="bg-white shadow-sm sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Mobile Layout */}
-          <div className="block md:hidden">
-            {/* First Row: Back button */}
-            <div className="flex items-center justify-between py-3 border-b border-gray-100">
-              <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none text-sm">
+          <div className="block lg:hidden">
+            {/* First Row: Back button and chapter info */}
+            <div className="flex items-center justify-between py-2 border-b border-gray-100">
+              <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none text-sm font-medium">
                 ← {novel.metadata.title}
               </Button>
-              <div className="text-xs text-gray-500">
+              <div className="text-xs text-gray-500 font-medium">
                 {currentChapter.number}/{novel.metadata.totalChapters}
               </div>
             </div>
             
-            {/* Second Row: Chapter dropdown and navigation */}
-            <div className="flex items-center justify-between py-3">
-              <div className="flex-1 mr-3">
-                <ChapterDropdown 
-                  chapters={novel.metadata.chapters}
-                  currentChapter={chapter}
-                  novelSlug={slug}
-                />
-              </div>
+            {/* Second Row: Chapter dropdown */}
+            <div className="py-2 border-b border-gray-100">
+              <ChapterDropdown 
+                chapters={novel.metadata.chapters}
+                currentChapter={chapter}
+                novelSlug={slug}
+              />
+            </div>
+            
+            {/* Third Row: Navigation buttons */}
+            <div className="py-2 flex justify-center">
               <CompactNavigation 
                 prevChapter={prevChapter || undefined}
                 nextChapter={nextChapter || undefined}
@@ -126,7 +128,7 @@ export default async function ChapterPage({ params }: PageProps) {
           </div>
 
           {/* Desktop Layout */}
-          <div className="hidden md:flex justify-between items-center py-4">
+          <div className="hidden lg:flex justify-between items-center py-4">
             <div className="flex items-center space-x-4">
               <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none">
                 ← {novel.metadata.title}
