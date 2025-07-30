@@ -94,10 +94,11 @@ export default async function ChapterPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header dengan Navigasi Compact */}
-      <header className="bg-white shadow-sm lg:sticky lg:top-0 z-10">
-        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
-          {/* Mobile Layout */}
-          <div className="block lg:hidden py-3">
+      <header className="lg:sticky lg:top-0 z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white shadow-sm rounded-lg lg:rounded-none px-3 sm:px-6 lg:px-8">
+            {/* Mobile Layout */}
+            <div className="block lg:hidden py-3">
             {/* Back button */}
             <div className="mb-3">
               <Button href={`/novel/${slug}`} variant="primary" className="inline-block text-blue-600 hover:text-blue-800 transition-colors bg-transparent shadow-none text-sm font-medium">
@@ -190,6 +191,7 @@ export default async function ChapterPage({ params }: PageProps) {
             </div>
           </div>
         </div>
+        </div>
       </header>
 
       {/* Main Content */}
@@ -246,7 +248,8 @@ export default async function ChapterPage({ params }: PageProps) {
       </main>
 
       {/* Floating Mobile Navigation - Only visible on mobile */}
-      <div className="lg:hidden fixed bottom-4 left-4 right-4 z-20">
+      <div className="lg:hidden fixed bottom-4 z-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-3">
           <div className="flex items-center justify-between">
             {/* Chapter Dropdown - Compact */}
@@ -301,6 +304,7 @@ export default async function ChapterPage({ params }: PageProps) {
               )}
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>
