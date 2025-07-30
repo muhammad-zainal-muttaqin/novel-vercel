@@ -94,7 +94,7 @@ export default async function ChapterPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header dengan Navigasi Compact */}
-      <header className="bg-white shadow-sm sticky top-0 z-10">
+      <header className="bg-white shadow-sm lg:sticky lg:top-0 z-10">
         <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
           {/* Mobile Layout */}
           <div className="block lg:hidden py-3">
@@ -244,6 +244,65 @@ export default async function ChapterPage({ params }: PageProps) {
           </Button>
         </div>
       </main>
+
+      {/* Floating Mobile Navigation - Only visible on mobile */}
+      <div className="lg:hidden fixed bottom-4 left-4 right-4 z-20">
+        <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-3">
+          <div className="flex items-center justify-between">
+            {/* Chapter Dropdown - Compact */}
+            <div className="flex-1 mr-3">
+              <ChapterDropdown 
+                chapters={novel.metadata.chapters}
+                currentChapter={chapter}
+                novelSlug={slug}
+              />
+            </div>
+            
+            {/* Navigation Buttons - Compact */}
+            <div className="flex gap-2">
+              {prevChapter ? (
+                <Button
+                  href={`/novel/${slug}/${prevChapter.slug}`}
+                  variant="secondary"
+                  size="sm"
+                  className="px-3 py-2 text-xs"
+                >
+                  ←
+                </Button>
+              ) : (
+                <Button
+                  disabled={true}
+                  variant="secondary"
+                  size="sm"
+                  className="px-3 py-2 text-xs opacity-50"
+                >
+                  ←
+                </Button>
+              )}
+              
+              {nextChapter ? (
+                <Button
+                  href={`/novel/${slug}/${nextChapter.slug}`}
+                  variant="primary"
+                  size="sm"
+                  className="px-3 py-2 text-xs"
+                >
+                  →
+                </Button>
+              ) : (
+                <Button
+                  disabled={true}
+                  variant="primary"
+                  size="sm"
+                  className="px-3 py-2 text-xs opacity-50"
+                >
+                  →
+                </Button>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 } 
