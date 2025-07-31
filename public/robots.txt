@@ -1,0 +1,9 @@
+# Allow all web crawlers (like Google, Bing, etc)
+User-agent: *
+Allow: /
+
+# Disallow editor area
+Disallow: /editor/
+
+# Sitemap location
+Sitemap: https://novel-vercel-mu.vercel.app/sitemap.xml
